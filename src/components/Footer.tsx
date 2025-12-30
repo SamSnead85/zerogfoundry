@@ -4,21 +4,15 @@ import { Linkedin, Twitter, Mail, MapPin } from 'lucide-react'
 const footerLinks = {
     company: [
         { label: 'About', href: '/about' },
-        { label: 'Careers', href: '/careers' },
-        { label: 'Investors', href: '/investors' },
-    ],
-    solutions: [
-        { label: 'Healthcare', href: '/solutions/healthcare' },
-        { label: 'Financial Services', href: '/solutions/financial-services' },
+        { label: 'Contact', href: '/contact' },
     ],
     resources: [
-        { label: 'Case Studies', href: '/case-studies' },
+        { label: 'Methodology', href: '/methodology' },
         { label: 'Insights', href: '/insights' },
-        { label: 'Our Approach', href: '/our-approach' },
     ],
     legal: [
-        { label: 'Privacy Policy', href: '/privacy' },
-        { label: 'Terms of Service', href: '/terms' },
+        { label: 'Privacy Policy', href: '/legal' },
+        { label: 'Terms of Service', href: '/legal' },
     ],
 }
 
@@ -76,22 +70,6 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Solutions Links */}
-                    <div>
-                        <h4 className="font-semibold text-white mb-4">Solutions</h4>
-                        <ul className="space-y-3">
-                            {footerLinks.solutions.map((link) => (
-                                <li key={link.href}>
-                                    <Link
-                                        to={link.href}
-                                        className="text-[var(--color-muted)] hover:text-white transition-colors"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
 
                     {/* Resources Links */}
                     <div>

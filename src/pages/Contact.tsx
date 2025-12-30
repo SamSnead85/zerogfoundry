@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Mail, MapPin, Send, CheckCircle } from 'lucide-react'
+import { Mail, MapPin, Send, CheckCircle, Calendar, Clock } from 'lucide-react'
 import { motion } from 'framer-motion'
 import {
     Section,
@@ -9,7 +9,6 @@ import {
 } from '../components'
 
 const industries = ['Healthcare', 'Financial Services', 'Insurance', 'Other']
-const impactRanges = ['< $1M', '$1M - $5M', '$5M - $20M', '$20M+']
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -18,10 +17,7 @@ export default function Contact() {
         company: '',
         title: '',
         industry: '',
-        useCase: '',
-        expectedImpact: '',
-        phone: '',
-        preferredContact: 'email',
+        message: '',
     })
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
@@ -72,14 +68,14 @@ export default function Contact() {
         <>
             {/* Hero Section */}
             <Section className="pt-32 pb-16">
-                <div className="max-w-3xl mx-auto">
+                <div className="max-w-3xl mx-auto text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
                         <p className="text-eyebrow mb-6">Contact</p>
-                        <h1 className="text-display text-[var(--color-foreground)] mb-8">Let's Quantify Your AI Opportunity</h1>
+                        <h1 className="text-display text-[var(--color-foreground)] mb-8">Let's Talk</h1>
                         <p className="text-lg text-[var(--color-muted)] leading-relaxed">
                             Start with a conversation. Tell us about your operational challenges,
                             and we'll explore whether we're the right partner for your AI transformation.
@@ -88,25 +84,88 @@ export default function Contact() {
                 </div>
             </Section>
 
-            {/* Contact Form */}
+            {/* Contact Options */}
             <Section background="alt">
-                <div className="grid lg:grid-cols-3 gap-12">
-                    {/* Form */}
-                    <div className="lg:col-span-2">
+                <div className="max-w-5xl mx-auto">
+                    <div className="grid lg:grid-cols-2 gap-12">
+                        {/* Book a Call */}
                         <ScrollReveal>
-                            <Card padding="lg">
-                                <h2 className="text-2xl font-bold text-white mb-6">Schedule Your Assessment</h2>
+                            <Card className="p-8 lg:p-10 h-full">
+                                <div className="flex items-center gap-3 mb-6">
+                                    <div className="w-12 h-12 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center">
+                                        <Calendar className="w-6 h-6 text-[var(--color-accent)]" />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-xl font-semibold text-white">Book an Executive Briefing</h2>
+                                        <p className="text-sm text-[var(--color-muted)]">30-minute discovery call</p>
+                                    </div>
+                                </div>
+
+                                <p className="text-[var(--color-muted)] mb-8">
+                                    Schedule a complimentary call to discuss your AI transformation goals
+                                    and explore potential opportunities.
+                                </p>
+
+                                <div className="space-y-4 mb-8">
+                                    <div className="flex items-center gap-3 text-sm text-[var(--color-muted)]">
+                                        <Clock className="w-4 h-4" />
+                                        <span>30 minutes</span>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-sm text-[var(--color-muted)]">
+                                        <CheckCircle className="w-4 h-4 text-[var(--color-success)]" />
+                                        <span>Understand your current challenges</span>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-sm text-[var(--color-muted)]">
+                                        <CheckCircle className="w-4 h-4 text-[var(--color-success)]" />
+                                        <span>Explore potential AI use cases</span>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-sm text-[var(--color-muted)]">
+                                        <CheckCircle className="w-4 h-4 text-[var(--color-success)]" />
+                                        <span>Discuss next steps</span>
+                                    </div>
+                                </div>
+
+                                {/* Cal.com Embed Placeholder */}
+                                <div className="p-6 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] text-center">
+                                    <p className="text-[var(--color-muted)] text-sm mb-4">
+                                        Calendar booking widget
+                                    </p>
+                                    <a
+                                        href="https://cal.com/zerogfoundry/executive-briefing"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center px-6 py-3 bg-[var(--color-foreground)] text-[#0a0a0a] font-medium text-sm rounded-lg transition-all hover:bg-[var(--color-champagne)]"
+                                    >
+                                        <Calendar className="w-4 h-4 mr-2" />
+                                        Book via Cal.com
+                                    </a>
+                                </div>
+                            </Card>
+                        </ScrollReveal>
+
+                        {/* Contact Form */}
+                        <ScrollReveal delay={0.1}>
+                            <Card className="p-8 lg:p-10 h-full">
+                                <div className="flex items-center gap-3 mb-6">
+                                    <div className="w-12 h-12 rounded-xl bg-[var(--color-success)]/10 flex items-center justify-center">
+                                        <Mail className="w-6 h-6 text-[var(--color-success)]" />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-xl font-semibold text-white">Send a Message</h2>
+                                        <p className="text-sm text-[var(--color-muted)]">We'll respond within 24 hours</p>
+                                    </div>
+                                </div>
 
                                 <form
                                     onSubmit={handleSubmit}
                                     name="contact"
                                     method="POST"
                                     data-netlify="true"
-                                    className="space-y-6"
+                                    className="space-y-5"
                                 >
                                     <input type="hidden" name="form-name" value="contact" />
 
-                                    <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="grid md:grid-cols-2 gap-5">
                                         <div>
                                             <label htmlFor="name" className="form-label">Name *</label>
                                             <input
@@ -135,7 +194,7 @@ export default function Contact() {
                                         </div>
                                     </div>
 
-                                    <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="grid md:grid-cols-2 gap-5">
                                         <div>
                                             <label htmlFor="company" className="form-label">Company *</label>
                                             <input
@@ -150,27 +209,10 @@ export default function Contact() {
                                             />
                                         </div>
                                         <div>
-                                            <label htmlFor="title" className="form-label">Title *</label>
-                                            <input
-                                                type="text"
-                                                id="title"
-                                                name="title"
-                                                required
-                                                value={formData.title}
-                                                onChange={handleChange}
-                                                className="form-input"
-                                                placeholder="Your role"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="grid md:grid-cols-2 gap-6">
-                                        <div>
-                                            <label htmlFor="industry" className="form-label">Industry *</label>
+                                            <label htmlFor="industry" className="form-label">Industry</label>
                                             <select
                                                 id="industry"
                                                 name="industry"
-                                                required
                                                 value={formData.industry}
                                                 onChange={handleChange}
                                                 className="form-input"
@@ -181,79 +223,22 @@ export default function Contact() {
                                                 ))}
                                             </select>
                                         </div>
-                                        <div>
-                                            <label htmlFor="expectedImpact" className="form-label">Expected Annual Impact</label>
-                                            <select
-                                                id="expectedImpact"
-                                                name="expectedImpact"
-                                                value={formData.expectedImpact}
-                                                onChange={handleChange}
-                                                className="form-input"
-                                            >
-                                                <option value="">Select range</option>
-                                                {impactRanges.map(range => (
-                                                    <option key={range} value={range}>{range}</option>
-                                                ))}
-                                            </select>
-                                        </div>
                                     </div>
 
                                     <div>
-                                        <label htmlFor="useCase" className="form-label">
-                                            Describe the operational challenge you're looking to solve *
+                                        <label htmlFor="message" className="form-label">
+                                            How can we help? *
                                         </label>
                                         <textarea
-                                            id="useCase"
-                                            name="useCase"
+                                            id="message"
+                                            name="message"
                                             required
                                             rows={4}
-                                            value={formData.useCase}
+                                            value={formData.message}
                                             onChange={handleChange}
                                             className="form-input resize-none"
-                                            placeholder="Tell us about the workflow or process you'd like to transform..."
+                                            placeholder="Tell us about your AI transformation goals..."
                                         />
-                                    </div>
-
-                                    <div className="grid md:grid-cols-2 gap-6">
-                                        <div>
-                                            <label htmlFor="phone" className="form-label">Phone (Optional)</label>
-                                            <input
-                                                type="tel"
-                                                id="phone"
-                                                name="phone"
-                                                value={formData.phone}
-                                                onChange={handleChange}
-                                                className="form-input"
-                                                placeholder="+1 (555) 000-0000"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="form-label">Preferred Contact Method</label>
-                                            <div className="flex gap-6 mt-3">
-                                                <label className="flex items-center gap-2 cursor-pointer">
-                                                    <input
-                                                        type="radio"
-                                                        name="preferredContact"
-                                                        value="email"
-                                                        checked={formData.preferredContact === 'email'}
-                                                        onChange={handleChange}
-                                                        className="w-4 h-4 text-[var(--color-accent)]"
-                                                    />
-                                                    <span className="text-white">Email</span>
-                                                </label>
-                                                <label className="flex items-center gap-2 cursor-pointer">
-                                                    <input
-                                                        type="radio"
-                                                        name="preferredContact"
-                                                        value="phone"
-                                                        checked={formData.preferredContact === 'phone'}
-                                                        onChange={handleChange}
-                                                        className="w-4 h-4 text-[var(--color-accent)]"
-                                                    />
-                                                    <span className="text-white">Phone</span>
-                                                </label>
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <Button
@@ -263,67 +248,35 @@ export default function Contact() {
                                         disabled={isSubmitting}
                                         icon={isSubmitting ? undefined : <Send className="w-5 h-5" />}
                                     >
-                                        {isSubmitting ? 'Submitting...' : 'Submit Request'}
+                                        {isSubmitting ? 'Sending...' : 'Send Message'}
                                     </Button>
                                 </form>
                             </Card>
                         </ScrollReveal>
                     </div>
 
-                    {/* Contact Info Sidebar */}
-                    <div className="space-y-6">
-                        <ScrollReveal>
-                            <Card padding="lg">
-                                <h3 className="text-lg font-semibold text-white mb-4">Alternative Contact</h3>
-                                <div className="space-y-4">
+                    {/* Contact Info */}
+                    <ScrollReveal>
+                        <div className="mt-12 pt-12 border-t border-[var(--color-border)]">
+                            <div className="flex flex-wrap justify-center gap-12 text-center">
+                                <div>
+                                    <Mail className="w-6 h-6 text-[var(--color-accent)] mx-auto mb-3" />
+                                    <p className="text-white font-medium mb-1">Email</p>
                                     <a
                                         href="mailto:contact@zerogfoundry.com"
-                                        className="flex items-start gap-3 text-[var(--color-muted)] hover:text-white transition-colors"
+                                        className="text-[var(--color-muted)] hover:text-white transition-colors"
                                     >
-                                        <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                                        <span>contact@zerogfoundry.com</span>
+                                        contact@zerogfoundry.com
                                     </a>
-                                    <div className="flex items-start gap-3 text-[var(--color-muted)]">
-                                        <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                                        <span>San Francisco, CA</span>
-                                    </div>
                                 </div>
-                            </Card>
-                        </ScrollReveal>
-
-                        <ScrollReveal delay={0.1}>
-                            <Card padding="lg">
-                                <h3 className="text-lg font-semibold text-white mb-4">What Happens Next?</h3>
-                                <ol className="space-y-4">
-                                    {[
-                                        'We review your submission within 24 hours',
-                                        'Initial discovery call to understand your needs',
-                                        'We scope a paid assessment ($75K-$250K)',
-                                        'You receive baseline metrics and ROI projection',
-                                    ].map((step, i) => (
-                                        <li key={i} className="flex items-start gap-3">
-                                            <div className="w-6 h-6 rounded-full bg-[var(--color-accent)]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                <span className="text-xs font-bold text-[var(--color-accent)]">{i + 1}</span>
-                                            </div>
-                                            <span className="text-[var(--color-muted)] text-sm">{step}</span>
-                                        </li>
-                                    ))}
-                                </ol>
-                            </Card>
-                        </ScrollReveal>
-
-                        <ScrollReveal delay={0.2}>
-                            <Card padding="lg" className="bg-gradient-to-br from-[var(--color-accent)]/10 to-transparent">
-                                <h3 className="text-lg font-semibold text-white mb-2">For Investors</h3>
-                                <p className="text-sm text-[var(--color-muted)] mb-4">
-                                    Interested in investment opportunities or portfolio support?
-                                </p>
-                                <Button to="/investors" variant="secondary" size="sm" className="w-full">
-                                    Investor Relations
-                                </Button>
-                            </Card>
-                        </ScrollReveal>
-                    </div>
+                                <div>
+                                    <MapPin className="w-6 h-6 text-[var(--color-accent)] mx-auto mb-3" />
+                                    <p className="text-white font-medium mb-1">Location</p>
+                                    <p className="text-[var(--color-muted)]">San Francisco, CA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ScrollReveal>
                 </div>
             </Section>
         </>

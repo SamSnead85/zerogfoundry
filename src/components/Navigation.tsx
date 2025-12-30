@@ -4,11 +4,10 @@ import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navLinks = [
-    { label: 'Our Approach', href: '/our-approach' },
-    { label: 'Solutions', href: '/solutions' },
-    { label: 'Case Studies', href: '/case-studies' },
-    { label: 'About', href: '/about' },
+    { label: 'Assessment', href: '/assessment' },
+    { label: 'Methodology', href: '/methodology' },
     { label: 'Insights', href: '/insights' },
+    { label: 'About', href: '/about' },
 ]
 
 export default function Navigation() {

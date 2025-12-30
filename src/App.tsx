@@ -1,18 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Navigation, Footer, ScrollProgress, AnimatedBackground } from './components'
 
 // Pages
 import Home from './pages/Home'
 import Approach from './pages/Approach'
-import Solutions from './pages/Solutions'
-import CaseStudies from './pages/CaseStudies'
 import About from './pages/About'
 import Insights from './pages/Insights'
 import Contact from './pages/Contact'
-import Investors from './pages/Investors'
-import Careers from './pages/Careers'
-import Privacy from './pages/Privacy'
-import Terms from './pages/Terms'
+import Legal from './pages/Legal'
+import Assessment from './pages/Assessment'
 
 function App() {
   return (
@@ -34,16 +30,22 @@ function App() {
         <main id="main-content" className="flex-1 pt-20">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/our-approach" element={<Approach />} />
-            <Route path="/solutions" element={<Solutions />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/methodology" element={<Approach />} />
             <Route path="/about" element={<About />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/investors" element={<Investors />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
+            <Route path="/legal" element={<Legal />} />
+            <Route path="/assessment" element={<Assessment />} />
+
+            {/* Redirects for old routes */}
+            <Route path="/our-approach" element={<Navigate to="/methodology" replace />} />
+            <Route path="/solutions" element={<Navigate to="/" replace />} />
+            <Route path="/solutions/*" element={<Navigate to="/" replace />} />
+            <Route path="/case-studies" element={<Navigate to="/methodology" replace />} />
+            <Route path="/careers" element={<Navigate to="/about" replace />} />
+            <Route path="/investors" element={<Navigate to="/contact" replace />} />
+            <Route path="/privacy" element={<Navigate to="/legal" replace />} />
+            <Route path="/terms" element={<Navigate to="/legal" replace />} />
           </Routes>
         </main>
 

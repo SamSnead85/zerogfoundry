@@ -1,4 +1,4 @@
-import { ArrowRight, Cpu, Database, Users, Shield, TrendingUp, CheckCircle } from 'lucide-react'
+import { ArrowRight, Cpu, Database, Users, Shield, CheckCircle, Heart, Building2, Clock, DollarSign, Award } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
@@ -11,8 +11,6 @@ import {
     StaggerContainer,
     StaggerItem,
     AnimatedCounter,
-    FeaturedIn,
-    AwardsSection,
     ExecutiveCTA,
 } from '../components'
 
@@ -90,79 +88,7 @@ export default function Home() {
                         }}
                     />
 
-                    {/* Organic Blob 4 - Warm Champagne Bottom */}
-                    <motion.div
-                        className="absolute -bottom-40 left-1/4 w-[650px] h-[650px] rounded-full"
-                        style={{
-                            background: 'radial-gradient(circle, rgba(212, 196, 168, 0.10) 0%, transparent 70%)',
-                            filter: 'blur(100px)',
-                        }}
-                        animate={{
-                            x: [0, -30, 45, -25, 0],
-                            y: [0, -25, 15, -35, 0],
-                            scale: [1, 1.08, 0.92, 1.04, 1],
-                        }}
-                        transition={{
-                            duration: 28,
-                            ease: "easeInOut",
-                            repeat: Infinity,
-                            delay: 4,
-                        }}
-                    />
-
-                    {/* Premium Light Beam - Diagonal */}
-                    <motion.div
-                        className="absolute top-0 left-1/4 w-[600px] h-[1000px] opacity-[0.02]"
-                        style={{
-                            background: 'linear-gradient(135deg, transparent 0%, rgba(248, 246, 244, 0.3) 50%, transparent 100%)',
-                            transform: 'rotate(-15deg)',
-                            filter: 'blur(60px)',
-                        }}
-                        animate={{
-                            opacity: [0.015, 0.035, 0.015],
-                            x: [-50, 80, -50],
-                        }}
-                        transition={{
-                            duration: 18,
-                            ease: "easeInOut",
-                            repeat: Infinity,
-                        }}
-                    />
-
-                    {/* Elegant Floating Particles - Luxury Dust */}
-                    <div className="absolute inset-0 pointer-events-none">
-                        {[...Array(25)].map((_, i) => (
-                            <motion.div
-                                key={i}
-                                className="absolute rounded-full"
-                                style={{
-                                    width: `${1.5 + Math.random() * 2.5}px`,
-                                    height: `${1.5 + Math.random() * 2.5}px`,
-                                    left: `${Math.random() * 100}%`,
-                                    top: `${65 + Math.random() * 45}%`,
-                                    background: i % 4 === 0
-                                        ? 'rgba(201, 168, 108, 0.5)'
-                                        : i % 4 === 1
-                                            ? 'rgba(248, 246, 244, 0.35)'
-                                            : i % 4 === 2
-                                                ? 'rgba(196, 168, 152, 0.4)'
-                                                : 'rgba(212, 196, 168, 0.45)',
-                                }}
-                                animate={{
-                                    y: [0, -700],
-                                    opacity: [0, 0.7, 0.5, 0],
-                                }}
-                                transition={{
-                                    duration: 14 + Math.random() * 8,
-                                    ease: "linear",
-                                    repeat: Infinity,
-                                    delay: i * 0.8,
-                                }}
-                            />
-                        ))}
-                    </div>
-
-                    {/* Refined Grid Pattern - Subtle Architecture */}
+                    {/* Refined Grid Pattern */}
                     <div
                         className="absolute inset-0 opacity-[0.012]"
                         style={{
@@ -177,7 +103,7 @@ export default function Home() {
                     {/* Soft Vignette */}
                     <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_60%_at_50%_45%,transparent_0%,rgba(10,10,10,0.5)_100%)]" />
 
-                    {/* Bottom gradient for content integration */}
+                    {/* Bottom gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
                 </div>
 
@@ -193,14 +119,14 @@ export default function Home() {
                                 AI Transformation Consultancy
                             </p>
 
-                            {/* Elegant Display Headline - Playfair */}
+                            {/* Elegant Display Headline */}
                             <h1 className="font-serif text-[clamp(3.5rem,9vw,6rem)] font-normal leading-[0.95] tracking-[-0.02em] text-[var(--color-foreground)] mb-10">
                                 From Demo to
                                 <br />
                                 <span className="italic font-light text-[var(--color-champagne)]">Production</span>
                             </h1>
 
-                            {/* Refined Subtitle - Outfit */}
+                            {/* Refined Subtitle */}
                             <p className="text-lg md:text-xl text-[var(--color-muted)] mb-12 max-w-xl leading-relaxed font-light tracking-wide">
                                 We transform complex operational challenges into production-grade AI workflows for Fortune 1000 companies.
                                 <span className="text-[var(--color-foreground)] font-medium"> Guaranteed outcomes.</span>
@@ -216,7 +142,7 @@ export default function Home() {
                                     <ArrowRight className="w-4 h-4 ml-3" />
                                 </Link>
                                 <Link
-                                    to="/our-approach"
+                                    to="/methodology"
                                     className="inline-flex items-center px-8 py-4 border border-[var(--color-border-strong)] text-[var(--color-foreground)] font-medium text-[0.9375rem] tracking-wide rounded-lg transition-all duration-300 hover:bg-[var(--color-card-hover)] hover:border-[var(--color-champagne)]/30"
                                 >
                                     Our Methodology
@@ -260,165 +186,275 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* The Problem Section */}
-            <Section background="alt" id="problem">
-                <ScrollReveal>
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-white mb-6">The Last Mile Problem</h2>
-                        <p className="text-xl text-[var(--color-muted)] leading-relaxed">
-                            <span className="text-[var(--color-foreground)] font-semibold text-3xl">95%</span> of enterprise AI projects fail to
-                            deliver a meaningful return on investment. You've seen the demos. You've run the pilots.
-                            But you're still waiting for the results.
-                        </p>
-                        <p className="text-xl text-[var(--color-muted)] mt-6 leading-relaxed">
-                            You're not alone. This is the <span className="text-white font-semibold">"last mile" problem</span> of AI,
-                            and it's where most companies get stuck.
-                        </p>
-                    </div>
-                </ScrollReveal>
-            </Section>
-
-            {/* The Agitation Section */}
-            <Section id="agitation">
+            {/* MANIFESTO: The AI Industry Has a Trust Problem */}
+            <Section background="alt" id="manifesto">
                 <ScrollReveal>
                     <div className="max-w-4xl mx-auto">
-                        <div className="grid md:grid-cols-2 gap-8 items-center">
-                            <div>
-                                <h2 className="text-white mb-6">The Market Reality</h2>
-                                <p className="text-lg text-[var(--color-muted)] leading-relaxed mb-6">
-                                    The market is flooded with AI platforms and generalist consultants who promise transformation
-                                    but deliver little more than a slide deck.
-                                </p>
-                                <p className="text-lg text-[var(--color-muted)] leading-relaxed">
-                                    They leave you with a system that works <span className="text-[var(--color-warning)] font-semibold">60% of the time</span>,
-                                    which in the real world, is a <span className="text-[var(--color-error)] font-semibold">100% failure</span>.
-                                </p>
-                            </div>
-                            <Card className="p-8">
-                                <div className="space-y-6">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-16 h-16 rounded-full bg-[var(--color-error)]/20 flex items-center justify-center text-[var(--color-error)]">
-                                            <span className="text-2xl font-bold">95%</span>
-                                        </div>
-                                        <div>
-                                            <p className="text-white font-semibold">AI Projects Fail</p>
-                                            <p className="text-sm text-[var(--color-muted)]">To deliver meaningful ROI</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-16 h-16 rounded-full bg-[var(--color-warning)]/20 flex items-center justify-center text-[var(--color-warning)]">
-                                            <span className="text-2xl font-bold">60%</span>
-                                        </div>
-                                        <div>
-                                            <p className="text-white font-semibold">Demo Accuracy</p>
-                                            <p className="text-sm text-[var(--color-muted)]">Industry standard ceiling</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-16 h-16 rounded-full bg-[var(--color-accent)]/20 flex items-center justify-center text-[var(--color-accent)]">
-                                            <span className="text-2xl font-bold">$B</span>
-                                        </div>
-                                        <div>
-                                            <p className="text-white font-semibold">Wasted Investment</p>
-                                            <p className="text-sm text-[var(--color-muted)]">In failed AI initiatives</p>
-                                        </div>
+                        <div className="text-center mb-16">
+                            <p className="text-[0.8rem] tracking-[0.25em] uppercase text-[var(--color-champagne)]/70 mb-6 font-light">
+                                Our Perspective
+                            </p>
+                            <h2 className="font-serif text-[clamp(2rem,5vw,3.5rem)] font-normal leading-[1.1] text-[var(--color-foreground)] mb-8">
+                                The AI Industry Has a
+                                <span className="italic text-[var(--color-champagne)]"> Trust Problem</span>
+                            </h2>
+                        </div>
+
+                        <div className="space-y-8 text-lg text-[var(--color-muted)] leading-relaxed">
+                            <p>
+                                Every enterprise AI pitch looks the same: impressive demos, bold ROI projections, and promises of transformation.
+                                But here's the uncomfortable truth that vendors won't tell you:
+                            </p>
+
+                            <Card className="p-8 bg-gradient-to-br from-[var(--color-error)]/10 to-transparent border-[var(--color-error)]/20">
+                                <div className="flex items-center gap-6">
+                                    <div className="text-5xl font-serif text-[var(--color-error)]">95%</div>
+                                    <div>
+                                        <p className="text-[var(--color-foreground)] font-medium text-xl mb-1">of AI projects fail to deliver meaningful ROI</p>
+                                        <p className="text-[var(--color-muted)] text-sm">Source: MIT Sloan Management Review, Gartner Research</p>
                                     </div>
                                 </div>
                             </Card>
+
+                            <p>
+                                The gap between "demo-grade" and "production-grade" AI is enormous. A model that works 60% of the time in a controlled environment
+                                is a <span className="text-[var(--color-foreground)] font-medium">100% failure</span> in production. This is the "last mile" problem of AI—and it's where
+                                most companies get stuck.
+                            </p>
+
+                            <p>
+                                We founded Zero G Foundry because we've lived this pain. We've seen the gap between research demos and production reality.
+                                We've watched companies waste millions on AI initiatives that never reach their potential. And we decided to do something about it.
+                            </p>
                         </div>
                     </div>
                 </ScrollReveal>
             </Section>
 
-            {/* The Solution Section */}
-            <Section background="alt" id="solution">
+            {/* SOLUTION: How We're Different */}
+            <Section id="solution">
                 <ScrollReveal>
                     <SectionHeader
-                        badge="Our Mission"
+                        badge="Our Approach"
                         title="We Solve the Last Mile Problem"
-                        subtitle="Zero G Foundry was created to solve this problem. We are not another AI platform. We are a team of elite AI strategists and engineers who deliver guaranteed outcomes."
+                        subtitle="Unlike demos that work 60% of the time, we guarantee 95%+ accuracy with performance floors in our contracts."
                     />
                 </ScrollReveal>
 
-                <StaggerContainer className="grid md:grid-cols-3 gap-6">
+                <StaggerContainer className="grid md:grid-cols-3 gap-6 mb-16">
                     <StaggerItem>
                         <FeatureCard
                             icon={<Cpu className="w-6 h-6" />}
-                            title="Production-Grade AI"
-                            description="We specialize in transforming your most complex, mission-critical workflows with agentic AI that you can trust."
+                            title="DGX-Powered Development"
+                            description="High-performance NVIDIA infrastructure enabling rapid iteration and training at scale. We bring enterprise compute to every engagement."
                         />
                     </StaggerItem>
                     <StaggerItem>
                         <FeatureCard
-                            icon={<Shield className="w-6 h-6" />}
-                            title="Guaranteed Outcomes"
-                            description="Unlike demos that work 60% of the time, we guarantee 95%+ accuracy with performance floors in our contracts."
+                            icon={<Database className="w-6 h-6" />}
+                            title="Proprietary Data Generation"
+                            description="Solving AI's #1 bottleneck—data scarcity—with synthetic, high-quality training data tailored to your specific workflows."
                         />
                     </StaggerItem>
                     <StaggerItem>
                         <FeatureCard
-                            icon={<TrendingUp className="w-6 h-6" />}
-                            title="Measurable ROI"
-                            description="We quantify the value upfront and structure our pricing around the business outcomes we deliver."
+                            icon={<Users className="w-6 h-6" />}
+                            title="Human-in-the-Loop RLHF"
+                            description="Expert human feedback ensuring models are accurate, trustworthy, and aligned with your business logic. Trust that earns adoption."
                         />
                     </StaggerItem>
                 </StaggerContainer>
-            </Section >
 
-            {/* The Differentiator Section */}
-            < Section id="differentiator" >
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    <ScrollReveal direction="left">
-                        <div>
-                            <span className="badge mb-4">Our Methodology</span>
-                            <h2 className="text-white mb-6">How We Guarantee Results Where Others Fail</h2>
-                            <p className="text-lg text-[var(--color-muted)] leading-relaxed mb-8">
-                                We've built a proprietary methodology that bridges the gap from demo to production.
-                                By combining our high-performance infrastructure, proprietary data generation engine,
-                                and a rigorous human-in-the-loop reinforcement process, we build AI systems that are
-                                not just intelligent, but <span className="text-white font-semibold">reliable, auditable, and aligned with your business</span>.
-                            </p>
-                            <Button to="/our-approach" variant="secondary" icon={<ArrowRight className="w-5 h-5" />}>
-                                Learn About Our Approach
+                {/* 3-Phase Methodology Preview */}
+                <ScrollReveal>
+                    <Card className="p-8 lg:p-12">
+                        <div className="text-center mb-10">
+                            <h3 className="text-2xl font-serif text-[var(--color-foreground)] mb-3">Three Phases to Transformation</h3>
+                            <p className="text-[var(--color-muted)]">A structured approach that aligns our incentives with your success.</p>
+                        </div>
+
+                        <div className="grid md:grid-cols-3 gap-8">
+                            <div className="text-center">
+                                <div className="w-12 h-12 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] mx-auto mb-4 font-serif text-xl">01</div>
+                                <h4 className="text-[var(--color-foreground)] font-medium mb-2">Assessment</h4>
+                                <p className="text-sm text-[var(--color-muted)]">Deep-dive analysis and ROI quantification with your finance team</p>
+                                <p className="text-xs text-[var(--color-subtle)] mt-2">4-6 weeks</p>
+                            </div>
+                            <div className="text-center">
+                                <div className="w-12 h-12 rounded-full bg-[var(--color-success)]/10 flex items-center justify-center text-[var(--color-success)] mx-auto mb-4 font-serif text-xl">02</div>
+                                <h4 className="text-[var(--color-foreground)] font-medium mb-2">Implementation</h4>
+                                <p className="text-sm text-[var(--color-muted)]">Fixed-fee solution development with guaranteed performance targets</p>
+                                <p className="text-xs text-[var(--color-subtle)] mt-2">8-16 weeks</p>
+                            </div>
+                            <div className="text-center">
+                                <div className="w-12 h-12 rounded-full bg-[var(--color-warning)]/10 flex items-center justify-center text-[var(--color-warning)] mx-auto mb-4 font-serif text-xl">03</div>
+                                <h4 className="text-[var(--color-foreground)] font-medium mb-2">Optimization</h4>
+                                <p className="text-sm text-[var(--color-muted)]">Continuous monitoring with performance floor guarantees</p>
+                                <p className="text-xs text-[var(--color-subtle)] mt-2">Ongoing</p>
+                            </div>
+                        </div>
+
+                        <div className="text-center mt-10">
+                            <Button to="/methodology" variant="secondary" icon={<ArrowRight className="w-5 h-5" />}>
+                                Explore Full Methodology
                             </Button>
                         </div>
-                    </ScrollReveal>
+                    </Card>
+                </ScrollReveal>
+            </Section>
 
-                    <ScrollReveal direction="right">
-                        <div className="space-y-4">
-                            <Card className="flex items-start gap-4 p-6">
-                                <div className="w-12 h-12 flex-shrink-0 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)]">
-                                    <Cpu className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-semibold text-white mb-1">DGX-Powered Development</h3>
-                                    <p className="text-[var(--color-muted)]">High-performance infrastructure enabling rapid iteration and training at scale.</p>
-                                </div>
-                            </Card>
-                            <Card className="flex items-start gap-4 p-6">
-                                <div className="w-12 h-12 flex-shrink-0 rounded-lg bg-[var(--color-success)]/10 flex items-center justify-center text-[var(--color-success)]">
-                                    <Database className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-semibold text-white mb-1">Proprietary Data Generation</h3>
-                                    <p className="text-[var(--color-muted)]">Solving AI's #1 bottleneck—data scarcity—with synthetic, high-quality training data.</p>
-                                </div>
-                            </Card>
-                            <Card className="flex items-start gap-4 p-6">
-                                <div className="w-12 h-12 flex-shrink-0 rounded-lg bg-[var(--color-warning)]/10 flex items-center justify-center text-[var(--color-warning)]">
-                                    <Users className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-semibold text-white mb-1">Human-in-the-Loop RLHF</h3>
-                                    <p className="text-[var(--color-muted)]">Expert human feedback ensuring models are accurate, trustworthy, and aligned with business logic.</p>
+            {/* PROOF: Featured Case Study */}
+            <Section background="alt" id="proof">
+                <ScrollReveal>
+                    <div className="max-w-5xl mx-auto">
+                        <div className="text-center mb-12">
+                            <span className="badge mb-4">Featured Case Study</span>
+                            <h2 className="text-3xl md:text-4xl font-serif text-[var(--color-foreground)]">
+                                Transforming Claims Processing for a Top-5 Insurer
+                            </h2>
+                        </div>
+
+                        <div className="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <p className="text-lg text-[var(--color-muted)] leading-relaxed mb-6">
+                                    A Fortune 100 insurance company was struggling with claims processing inefficiency.
+                                    45% of claims required manual review, costing $8M annually in labor and causing
+                                    customer satisfaction issues.
+                                </p>
+                                <ul className="space-y-3 mb-8">
+                                    {[
+                                        '95% automation rate (up from 55%)',
+                                        '$3.8M annual savings (exceeded projection)',
+                                        '48-hour reduction in processing time',
+                                        '22-point increase in customer satisfaction',
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-center gap-3 text-white">
+                                            <CheckCircle className="w-5 h-5 text-[var(--color-success)] flex-shrink-0" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <Card className="p-8 bg-gradient-to-br from-[var(--color-card)] to-[var(--color-background-alt)]">
+                                <Award className="w-10 h-10 text-[var(--color-champagne)] mb-6" />
+                                <blockquote className="text-lg text-white italic leading-relaxed mb-6">
+                                    "Zero G Foundry didn't just deliver a model—they delivered a transformation. Their
+                                    RLHF approach ensured our claims adjusters trusted the AI, and the results speak
+                                    for themselves. This is the first AI project that's actually delivered on its promises."
+                                </blockquote>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-full bg-[var(--color-champagne)]/20 flex items-center justify-center text-[var(--color-champagne)] font-bold">
+                                        COO
+                                    </div>
+                                    <div>
+                                        <p className="text-white font-semibold">Chief Operations Officer</p>
+                                        <p className="text-[var(--color-muted)]">Fortune 100 Insurance Company</p>
+                                    </div>
                                 </div>
                             </Card>
                         </div>
-                    </ScrollReveal>
-                </div>
+                    </div>
+                </ScrollReveal>
             </Section>
 
-            {/* Trust Signals - Metrics */}
+            {/* EXPERTISE: Industry Focus */}
+            <Section id="expertise">
+                <ScrollReveal>
+                    <SectionHeader
+                        badge="Industry Expertise"
+                        title="Healthcare & Financial Services"
+                        subtitle="Production-grade AI workflows tailored for regulated industries with enterprise compliance."
+                    />
+                </ScrollReveal>
+
+                <div className="grid md:grid-cols-2 gap-8 mb-12">
+                    <ScrollReveal>
+                        <Card className="p-8 h-full">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-12 h-12 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center">
+                                    <Heart className="w-6 h-6 text-[var(--color-accent)]" />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-semibold text-white">Healthcare</h3>
+                                    <p className="text-[var(--color-muted)] text-sm">HIPAA-compliant AI solutions</p>
+                                </div>
+                            </div>
+                            <div className="space-y-4 mb-6">
+                                <div className="flex items-center justify-between p-3 bg-[var(--color-background)]/50 rounded-lg">
+                                    <span className="text-[var(--color-muted)]">Prior Authorization</span>
+                                    <span className="text-[var(--color-foreground)] font-medium">85% straight-through</span>
+                                </div>
+                                <div className="flex items-center justify-between p-3 bg-[var(--color-background)]/50 rounded-lg">
+                                    <span className="text-[var(--color-muted)]">Claims Processing</span>
+                                    <span className="text-[var(--color-foreground)] font-medium">$12M savings</span>
+                                </div>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                                {['HIPAA Compliance', 'PHI Protection', 'Clinical RLHF', 'EHR Integration'].map((tag) => (
+                                    <span key={tag} className="px-3 py-1 text-xs text-[var(--color-muted)] bg-[var(--color-background)]/50 rounded-full">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </Card>
+                    </ScrollReveal>
+
+                    <ScrollReveal delay={0.1}>
+                        <Card className="p-8 h-full">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-12 h-12 rounded-xl bg-[var(--color-success)]/10 flex items-center justify-center">
+                                    <Building2 className="w-6 h-6 text-[var(--color-success)]" />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-semibold text-white">Financial Services</h3>
+                                    <p className="text-[var(--color-muted)] text-sm">SOC 2-compliant AI for finserv</p>
+                                </div>
+                            </div>
+                            <div className="space-y-4 mb-6">
+                                <div className="flex items-center justify-between p-3 bg-[var(--color-background)]/50 rounded-lg">
+                                    <span className="text-[var(--color-muted)]">Document Processing</span>
+                                    <span className="text-[var(--color-foreground)] font-medium">95% automation</span>
+                                </div>
+                                <div className="flex items-center justify-between p-3 bg-[var(--color-background)]/50 rounded-lg">
+                                    <span className="text-[var(--color-muted)]">Regulatory Compliance</span>
+                                    <span className="text-[var(--color-foreground)] font-medium">70% faster review</span>
+                                </div>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                                {['SOC 2 Type II', 'ISO 27001', 'Explainable AI', 'Real-time Monitoring'].map((tag) => (
+                                    <span key={tag} className="px-3 py-1 text-xs text-[var(--color-muted)] bg-[var(--color-background)]/50 rounded-full">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </Card>
+                    </ScrollReveal>
+                </div>
+
+                {/* Trust Signals */}
+                <ScrollReveal>
+                    <div className="grid grid-cols-3 gap-6 text-center">
+                        <div className="p-6">
+                            <Shield className="w-8 h-8 text-[var(--color-accent)] mx-auto mb-3" />
+                            <p className="text-[var(--color-foreground)] font-medium">Enterprise Security</p>
+                            <p className="text-sm text-[var(--color-muted)]">SOC 2, HIPAA, ISO 27001</p>
+                        </div>
+                        <div className="p-6">
+                            <Clock className="w-8 h-8 text-[var(--color-accent)] mx-auto mb-3" />
+                            <p className="text-[var(--color-foreground)] font-medium">4-Week Assessment</p>
+                            <p className="text-sm text-[var(--color-muted)]">Comprehensive roadmap</p>
+                        </div>
+                        <div className="p-6">
+                            <DollarSign className="w-8 h-8 text-[var(--color-accent)] mx-auto mb-3" />
+                            <p className="text-[var(--color-foreground)] font-medium">Guaranteed ROI</p>
+                            <p className="text-sm text-[var(--color-muted)]">Performance floors in every contract</p>
+                        </div>
+                    </div>
+                </ScrollReveal>
+            </Section>
+
+            {/* METRICS: Trust Signals */}
             <Section background="alt" id="metrics">
                 <ScrollReveal>
                     <SectionHeader
@@ -468,61 +504,57 @@ export default function Home() {
                 </div>
             </Section>
 
-            {/* Social Proof - Case Study Preview */}
-            <Section id="proof">
+            {/* PERSPECTIVE: Thought Leadership Preview */}
+            <Section id="insights-preview">
                 <ScrollReveal>
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <span className="badge mb-4">Featured Case Study</span>
-                            <h2 className="text-white mb-6">Transforming Claims Processing for a Top-5 Insurer</h2>
-                            <p className="text-lg text-[var(--color-muted)] leading-relaxed mb-6">
-                                A Fortune 100 insurance company was struggling with claims processing inefficiency.
-                                45% of claims required manual review, costing $8M annually in labor and causing
-                                customer satisfaction issues.
-                            </p>
-                            <ul className="space-y-3 mb-8">
-                                {[
-                                    '95% automation rate (up from 55%)',
-                                    '$3.8M annual savings (exceeded projection)',
-                                    '48-hour reduction in processing time',
-                                    '22-point increase in customer satisfaction',
-                                ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-white">
-                                        <CheckCircle className="w-5 h-5 text-[var(--color-success)] flex-shrink-0" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                            <Button to="/case-studies" icon={<ArrowRight className="w-5 h-5" />}>
-                                Read Full Case Study
-                            </Button>
-                        </div>
-
-                        <Card className="p-8 bg-gradient-to-br from-[var(--color-card)] to-[var(--color-background-alt)]">
-                            <blockquote className="text-lg text-white italic leading-relaxed mb-6">
-                                "Zero G Foundry didn't just deliver a model—they delivered a transformation. Their
-                                RLHF approach ensured our claims adjusters trusted the AI, and the results speak
-                                for themselves. This is the first AI project that's actually delivered on its promises."
-                            </blockquote>
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full bg-[var(--color-gold)]/20 flex items-center justify-center text-[var(--color-gold)] font-bold">
-                                    COO
-                                </div>
-                                <div>
-                                    <p className="text-white font-semibold">Chief Operations Officer</p>
-                                    <p className="text-[var(--color-muted)]">Fortune 100 Insurance Company</p>
-                                </div>
-                            </div>
-                        </Card>
+                    <div className="max-w-4xl mx-auto text-center">
+                        <span className="badge mb-4">Thought Leadership</span>
+                        <h2 className="text-3xl md:text-4xl font-serif text-[var(--color-foreground)] mb-6">
+                            Perspectives on AI Transformation
+                        </h2>
+                        <p className="text-lg text-[var(--color-muted)] mb-12">
+                            Deep dives into the strategies, technical approaches, and market trends shaping enterprise AI.
+                        </p>
                     </div>
                 </ScrollReveal>
+
+                <div className="grid md:grid-cols-2 gap-8 mb-12">
+                    <ScrollReveal>
+                        <Card className="p-8 h-full" padding="lg">
+                            <span className="badge mb-4">Technical Deep Dive</span>
+                            <h3 className="text-xl font-semibold text-white mb-3">
+                                Why Your AI Agent Gets Stuck at 60% Accuracy
+                            </h3>
+                            <p className="text-[var(--color-muted)] mb-6">
+                                The hidden challenges of moving from demo to production, and why RLHF is the missing piece that most AI implementations overlook.
+                            </p>
+                            <Link to="/insights" className="text-[var(--color-accent)] text-sm font-medium flex items-center gap-2 hover:gap-3 transition-all">
+                                Read Article <ArrowRight className="w-4 h-4" />
+                            </Link>
+                        </Card>
+                    </ScrollReveal>
+                    <ScrollReveal delay={0.1}>
+                        <Card className="p-8 h-full" padding="lg">
+                            <span className="badge mb-4">Strategy</span>
+                            <h3 className="text-xl font-semibold text-white mb-3">
+                                The Case Against Gainsharing in AI Contracts
+                            </h3>
+                            <p className="text-[var(--color-muted)] mb-6">
+                                Why pure percentage-of-savings models fail, and how to structure value-based pricing that protects both parties.
+                            </p>
+                            <Link to="/insights" className="text-[var(--color-accent)] text-sm font-medium flex items-center gap-2 hover:gap-3 transition-all">
+                                Read Article <ArrowRight className="w-4 h-4" />
+                            </Link>
+                        </Card>
+                    </ScrollReveal>
+                </div>
+
+                <div className="text-center">
+                    <Button to="/insights" variant="secondary" icon={<ArrowRight className="w-5 h-5" />}>
+                        View All Insights
+                    </Button>
+                </div>
             </Section>
-
-            {/* Thought Leadership - Featured In Media */}
-            <FeaturedIn />
-
-            {/* Industry Recognition */}
-            <AwardsSection className="bg-[var(--color-background-alt)]" />
 
             {/* Executive CTA */}
             <ExecutiveCTA
