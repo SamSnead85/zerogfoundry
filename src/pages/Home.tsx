@@ -19,17 +19,166 @@ import {
 export default function Home() {
     return (
         <>
-            {/* Premium Hero Section — Professional Executive Design */}
-            <section className="relative min-h-screen flex items-center overflow-hidden">
-                {/* Background Image with Overlay */}
-                <div className="absolute inset-0 z-0">
-                    <img
-                        src="/hero-bg.png"
-                        alt=""
-                        className="w-full h-full object-cover object-center"
+            {/* Premium Hero Section — Luxury Mesh Gradient Design */}
+            <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0a0a0a]">
+                {/* Ultra-Premium Organic Mesh Background */}
+                <div className="absolute inset-0">
+                    {/* Subtle grain texture */}
+                    <div
+                        className="absolute inset-0 opacity-[0.025]"
+                        style={{
+                            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                        }}
                     />
-                    {/* Gradient overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
+
+                    {/* Organic Blob 1 - Champagne Gold Top Left */}
+                    <motion.div
+                        className="absolute -top-40 -left-40 w-[700px] h-[700px] rounded-full"
+                        style={{
+                            background: 'radial-gradient(circle, rgba(201, 168, 108, 0.15) 0%, transparent 70%)',
+                            filter: 'blur(100px)',
+                        }}
+                        animate={{
+                            x: [0, 40, -30, 20, 0],
+                            y: [0, 30, -20, 40, 0],
+                            scale: [1, 1.1, 0.95, 1.05, 1],
+                        }}
+                        transition={{
+                            duration: 30,
+                            ease: "easeInOut",
+                            repeat: Infinity,
+                        }}
+                    />
+
+                    {/* Organic Blob 2 - Rose/Blush Top Right */}
+                    <motion.div
+                        className="absolute -top-20 -right-60 w-[600px] h-[600px] rounded-full"
+                        style={{
+                            background: 'radial-gradient(circle, rgba(196, 168, 152, 0.12) 0%, transparent 70%)',
+                            filter: 'blur(90px)',
+                        }}
+                        animate={{
+                            x: [0, -35, 25, -15, 0],
+                            y: [0, 25, -30, 20, 0],
+                            scale: [1, 0.95, 1.1, 1, 1],
+                        }}
+                        transition={{
+                            duration: 25,
+                            ease: "easeInOut",
+                            repeat: Infinity,
+                            delay: 2,
+                        }}
+                    />
+
+                    {/* Organic Blob 3 - Platinum/Silver Center */}
+                    <motion.div
+                        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full"
+                        style={{
+                            background: 'radial-gradient(circle, rgba(156, 165, 174, 0.08) 0%, transparent 70%)',
+                            filter: 'blur(120px)',
+                        }}
+                        animate={{
+                            x: [0, 50, -40, 30, 0],
+                            y: [0, -30, 25, -20, 0],
+                            scale: [1, 1.05, 0.98, 1.02, 1],
+                        }}
+                        transition={{
+                            duration: 35,
+                            ease: "easeInOut",
+                            repeat: Infinity,
+                            delay: 1,
+                        }}
+                    />
+
+                    {/* Organic Blob 4 - Warm Champagne Bottom */}
+                    <motion.div
+                        className="absolute -bottom-40 left-1/4 w-[650px] h-[650px] rounded-full"
+                        style={{
+                            background: 'radial-gradient(circle, rgba(212, 196, 168, 0.10) 0%, transparent 70%)',
+                            filter: 'blur(100px)',
+                        }}
+                        animate={{
+                            x: [0, -30, 45, -25, 0],
+                            y: [0, -25, 15, -35, 0],
+                            scale: [1, 1.08, 0.92, 1.04, 1],
+                        }}
+                        transition={{
+                            duration: 28,
+                            ease: "easeInOut",
+                            repeat: Infinity,
+                            delay: 4,
+                        }}
+                    />
+
+                    {/* Premium Light Beam - Diagonal */}
+                    <motion.div
+                        className="absolute top-0 left-1/4 w-[600px] h-[1000px] opacity-[0.02]"
+                        style={{
+                            background: 'linear-gradient(135deg, transparent 0%, rgba(248, 246, 244, 0.3) 50%, transparent 100%)',
+                            transform: 'rotate(-15deg)',
+                            filter: 'blur(60px)',
+                        }}
+                        animate={{
+                            opacity: [0.015, 0.035, 0.015],
+                            x: [-50, 80, -50],
+                        }}
+                        transition={{
+                            duration: 18,
+                            ease: "easeInOut",
+                            repeat: Infinity,
+                        }}
+                    />
+
+                    {/* Elegant Floating Particles - Luxury Dust */}
+                    <div className="absolute inset-0 pointer-events-none">
+                        {[...Array(25)].map((_, i) => (
+                            <motion.div
+                                key={i}
+                                className="absolute rounded-full"
+                                style={{
+                                    width: `${1.5 + Math.random() * 2.5}px`,
+                                    height: `${1.5 + Math.random() * 2.5}px`,
+                                    left: `${Math.random() * 100}%`,
+                                    top: `${65 + Math.random() * 45}%`,
+                                    background: i % 4 === 0
+                                        ? 'rgba(201, 168, 108, 0.5)'
+                                        : i % 4 === 1
+                                            ? 'rgba(248, 246, 244, 0.35)'
+                                            : i % 4 === 2
+                                                ? 'rgba(196, 168, 152, 0.4)'
+                                                : 'rgba(212, 196, 168, 0.45)',
+                                }}
+                                animate={{
+                                    y: [0, -700],
+                                    opacity: [0, 0.7, 0.5, 0],
+                                }}
+                                transition={{
+                                    duration: 14 + Math.random() * 8,
+                                    ease: "linear",
+                                    repeat: Infinity,
+                                    delay: i * 0.8,
+                                }}
+                            />
+                        ))}
+                    </div>
+
+                    {/* Refined Grid Pattern - Subtle Architecture */}
+                    <div
+                        className="absolute inset-0 opacity-[0.012]"
+                        style={{
+                            backgroundImage: `
+                                linear-gradient(rgba(248, 246, 244, 0.4) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(248, 246, 244, 0.4) 1px, transparent 1px)
+                            `,
+                            backgroundSize: '80px 80px',
+                        }}
+                    />
+
+                    {/* Soft Vignette */}
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_60%_at_50%_45%,transparent_0%,rgba(10,10,10,0.5)_100%)]" />
+
+                    {/* Bottom gradient for content integration */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
                 </div>
 
                 <div className="container relative z-10 py-32 md:py-40">
@@ -37,33 +186,39 @@ export default function Home() {
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            {/* Professional Eyebrow */}
-                            <p className="text-sm tracking-[0.2em] uppercase text-white/60 mb-6 font-medium">
+                            {/* Refined Eyebrow */}
+                            <p className="text-[0.8rem] tracking-[0.25em] uppercase text-[var(--color-champagne)]/70 mb-8 font-light">
                                 AI Transformation Consultancy
                             </p>
 
-                            {/* Elegant Headline */}
-                            <h1 className="hero-headline mb-8">
+                            {/* Elegant Display Headline - Playfair */}
+                            <h1 className="font-serif text-[clamp(3.5rem,9vw,6rem)] font-normal leading-[0.95] tracking-[-0.02em] text-[var(--color-foreground)] mb-10">
                                 From Demo to
                                 <br />
-                                <span className="hero-headline-accent">Production</span>
+                                <span className="italic font-light text-[var(--color-champagne)]">Production</span>
                             </h1>
 
-                            {/* Refined Subtitle */}
-                            <p className="text-lg md:text-xl text-white/70 mb-10 max-w-xl leading-relaxed font-light">
+                            {/* Refined Subtitle - Outfit */}
+                            <p className="text-lg md:text-xl text-[var(--color-muted)] mb-12 max-w-xl leading-relaxed font-light tracking-wide">
                                 We transform complex operational challenges into production-grade AI workflows for Fortune 1000 companies.
-                                <span className="text-white font-medium"> Guaranteed outcomes.</span>
+                                <span className="text-[var(--color-foreground)] font-medium"> Guaranteed outcomes.</span>
                             </p>
 
-                            {/* Professional CTA Buttons */}
-                            <div className="flex flex-wrap gap-4 mb-16">
-                                <Link to="/contact" className="btn-executive">
+                            {/* Premium CTA Buttons */}
+                            <div className="flex flex-wrap gap-5 mb-20">
+                                <Link
+                                    to="/contact"
+                                    className="inline-flex items-center px-8 py-4 bg-[var(--color-foreground)] text-[#0a0a0a] font-medium text-[0.9375rem] tracking-wide rounded-lg transition-all duration-300 hover:bg-[var(--color-champagne)] hover:shadow-[0_8px_30px_rgba(201,168,108,0.15)]"
+                                >
                                     Schedule Executive Briefing
-                                    <ArrowRight className="w-4 h-4 ml-2" />
+                                    <ArrowRight className="w-4 h-4 ml-3" />
                                 </Link>
-                                <Link to="/our-approach" className="btn-executive-outline">
+                                <Link
+                                    to="/our-approach"
+                                    className="inline-flex items-center px-8 py-4 border border-[var(--color-border-strong)] text-[var(--color-foreground)] font-medium text-[0.9375rem] tracking-wide rounded-lg transition-all duration-300 hover:bg-[var(--color-card-hover)] hover:border-[var(--color-champagne)]/30"
+                                >
                                     Our Methodology
                                 </Link>
                             </div>
@@ -71,22 +226,34 @@ export default function Home() {
 
                         {/* Elegant Metrics Bar */}
                         <motion.div
-                            className="grid grid-cols-3 gap-8 md:gap-16 pt-10 border-t border-white/10"
+                            className="grid grid-cols-3 gap-10 md:gap-20 pt-12 border-t border-[var(--color-border)]"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 0.6, duration: 1 }}
+                            transition={{ delay: 0.8, duration: 1.2 }}
                         >
                             <div>
-                                <div className="text-3xl md:text-4xl font-serif text-white">$12M<span className="text-white/40">+</span></div>
-                                <div className="text-xs text-white/40 uppercase tracking-widest mt-2">Average Savings</div>
+                                <div className="text-[2rem] md:text-[2.5rem] font-serif font-normal text-[var(--color-foreground)] tracking-tight">
+                                    $12M<span className="text-[var(--color-muted)]">+</span>
+                                </div>
+                                <div className="text-[0.7rem] text-[var(--color-subtle)] uppercase tracking-[0.2em] mt-3 font-light">
+                                    Average Savings
+                                </div>
                             </div>
                             <div>
-                                <div className="text-3xl md:text-4xl font-serif text-white">95<span className="text-white/40">%</span></div>
-                                <div className="text-xs text-white/40 uppercase tracking-widest mt-2">Production Accuracy</div>
+                                <div className="text-[2rem] md:text-[2.5rem] font-serif font-normal text-[var(--color-foreground)] tracking-tight">
+                                    95<span className="text-[var(--color-muted)]">%</span>
+                                </div>
+                                <div className="text-[0.7rem] text-[var(--color-subtle)] uppercase tracking-[0.2em] mt-3 font-light">
+                                    Production Accuracy
+                                </div>
                             </div>
                             <div>
-                                <div className="text-3xl md:text-4xl font-serif text-white">5<span className="text-white/40">x</span></div>
-                                <div className="text-xs text-white/40 uppercase tracking-widest mt-2">ROI Multiple</div>
+                                <div className="text-[2rem] md:text-[2.5rem] font-serif font-normal text-[var(--color-foreground)] tracking-tight">
+                                    5<span className="text-[var(--color-muted)]">x</span>
+                                </div>
+                                <div className="text-[0.7rem] text-[var(--color-subtle)] uppercase tracking-[0.2em] mt-3 font-light">
+                                    ROI Multiple
+                                </div>
                             </div>
                         </motion.div>
                     </div>
