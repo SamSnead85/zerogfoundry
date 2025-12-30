@@ -776,6 +776,12 @@ a {
   }
 }
 
+/* Third sphere - slowest rotation */
+.rotating-sphere-slow {
+  position: relative;
+  animation: slow-rotate 90s linear infinite;
+}
+
 /* ===== Floating Particles ===== */
 .floating-particle {
   animation: float-particle 4s ease-in-out infinite;

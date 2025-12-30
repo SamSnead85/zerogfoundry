@@ -1,17 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navLinks = [
     { label: 'Our Approach', href: '/our-approach' },
-    {
-        label: 'Solutions',
-        children: [
-            { label: 'Healthcare', href: '/solutions/healthcare' },
-            { label: 'Financial Services', href: '/solutions/financial-services' },
-        ],
-    },
+    { label: 'Solutions', href: '/solutions' },
     { label: 'Case Studies', href: '/case-studies' },
     { label: 'About', href: '/about' },
     { label: 'Insights', href: '/insights' },
@@ -20,7 +14,6 @@ const navLinks = [
 export default function Navigation() {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileOpen, setIsMobileOpen] = useState(false)
-    const [openDropdown, setOpenDropdown] = useState<string | null>(null)
     const location = useLocation()
 
     useEffect(() => {
@@ -33,80 +26,37 @@ export default function Navigation() {
 
     useEffect(() => {
         setIsMobileOpen(false)
-        setOpenDropdown(null)
     }, [location])
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-strong shadow-lg' : 'bg-transparent'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/80 backdrop-blur-xl border-b border-white/5' : 'bg-transparent'
                 }`}
         >
             <nav className="container flex items-center justify-between h-20" aria-label="Main navigation">
                 {/* Logo */}
-                <Link to="/" className="flex items-center gap-2" aria-label="Zero G Foundry Home">
-                    <img src="/logo.svg" alt="Zero G Foundry" className="h-8 w-auto" />
+                <Link to="/" className="flex items-center gap-3" aria-label="Zero G Foundry Home">
+                    <span className="text-xl font-serif text-white">Zero G Foundry</span>
                 </Link>
 
                 {/* Desktop Navigation */}
-                <div className="hidden lg:flex items-center gap-8">
+                <div className="hidden lg:flex items-center gap-10">
                     {navLinks.map((link) => (
-                        <div key={link.label} className="relative">
-                            {link.children ? (
-                                <div
-                                    className="relative"
-                                    onMouseEnter={() => setOpenDropdown(link.label)}
-                                    onMouseLeave={() => setOpenDropdown(null)}
-                                >
-                                    <button
-                                        className="flex items-center gap-1 text-[var(--color-muted)] hover:text-white transition-colors py-2"
-                                        aria-expanded={openDropdown === link.label}
-                                        aria-haspopup="true"
-                                    >
-                                        {link.label}
-                                        <ChevronDown
-                                            className={`w-4 h-4 transition-transform ${openDropdown === link.label ? 'rotate-180' : ''
-                                                }`}
-                                        />
-                                    </button>
-                                    <AnimatePresence>
-                                        {openDropdown === link.label && (
-                                            <motion.div
-                                                initial={{ opacity: 0, y: 8 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: 8 }}
-                                                transition={{ duration: 0.15 }}
-                                                className="absolute top-full left-0 mt-2 py-2 min-w-[200px] glass-strong rounded-lg shadow-xl"
-                                            >
-                                                {link.children.map((child) => (
-                                                    <Link
-                                                        key={child.href}
-                                                        to={child.href}
-                                                        className="block px-4 py-2 text-[var(--color-muted)] hover:text-white hover:bg-[var(--color-card)] transition-colors"
-                                                    >
-                                                        {child.label}
-                                                    </Link>
-                                                ))}
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
-                                </div>
-                            ) : (
-                                <Link
-                                    to={link.href}
-                                    className={`text-[var(--color-muted)] hover:text-white transition-colors ${location.pathname === link.href ? 'text-white' : ''
-                                        }`}
-                                >
-                                    {link.label}
-                                </Link>
-                            )}
-                        </div>
+                        <Link
+                            key={link.href}
+                            to={link.href}
+                            className={`text-sm text-white/50 hover:text-white transition-colors ${location.pathname === link.href ? 'text-white' : ''
+                                }`}
+                        >
+                            {link.label}
+                        </Link>
                     ))}
                 </div>
 
                 {/* Desktop CTA */}
                 <div className="hidden lg:flex items-center gap-4">
-                    <Link to="/contact" className="btn btn-primary">
-                        Schedule Assessment
+                    <Link to="/contact" className="btn-executive">
+                        Get Started
                     </Link>
                 </div>
 
@@ -128,60 +78,22 @@ export default function Navigation() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="lg:hidden glass-strong border-t border-[var(--color-border)]"
+                        className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-white/5"
                     >
                         <div className="container py-6 flex flex-col gap-4">
                             {navLinks.map((link) => (
-                                <div key={link.label}>
-                                    {link.children ? (
-                                        <div>
-                                            <button
-                                                className="flex items-center justify-between w-full text-[var(--color-muted)] py-2"
-                                                onClick={() =>
-                                                    setOpenDropdown(openDropdown === link.label ? null : link.label)
-                                                }
-                                            >
-                                                {link.label}
-                                                <ChevronDown
-                                                    className={`w-4 h-4 transition-transform ${openDropdown === link.label ? 'rotate-180' : ''
-                                                        }`}
-                                                />
-                                            </button>
-                                            <AnimatePresence>
-                                                {openDropdown === link.label && (
-                                                    <motion.div
-                                                        initial={{ opacity: 0, height: 0 }}
-                                                        animate={{ opacity: 1, height: 'auto' }}
-                                                        exit={{ opacity: 0, height: 0 }}
-                                                        className="pl-4 flex flex-col gap-2 mt-2"
-                                                    >
-                                                        {link.children.map((child) => (
-                                                            <Link
-                                                                key={child.href}
-                                                                to={child.href}
-                                                                className="text-[var(--color-muted)] hover:text-white py-1"
-                                                            >
-                                                                {child.label}
-                                                            </Link>
-                                                        ))}
-                                                    </motion.div>
-                                                )}
-                                            </AnimatePresence>
-                                        </div>
-                                    ) : (
-                                        <Link
-                                            to={link.href}
-                                            className={`block text-[var(--color-muted)] hover:text-white py-2 ${location.pathname === link.href ? 'text-white' : ''
-                                                }`}
-                                        >
-                                            {link.label}
-                                        </Link>
-                                    )}
-                                </div>
+                                <Link
+                                    key={link.href}
+                                    to={link.href}
+                                    className={`block text-white/60 hover:text-white py-2 ${location.pathname === link.href ? 'text-white' : ''
+                                        }`}
+                                >
+                                    {link.label}
+                                </Link>
                             ))}
-                            <div className="pt-4 border-t border-[var(--color-border)]">
-                                <Link to="/contact" className="btn btn-primary w-full">
-                                    Schedule Assessment
+                            <div className="pt-4 border-t border-white/10">
+                                <Link to="/contact" className="btn-executive w-full text-center">
+                                    Get Started
                                 </Link>
                             </div>
                         </div>

@@ -4,8 +4,7 @@ import { Navigation, Footer, ScrollProgress, AnimatedBackground } from './compon
 // Pages
 import Home from './pages/Home'
 import Approach from './pages/Approach'
-import Healthcare from './pages/solutions/Healthcare'
-import FinancialServices from './pages/solutions/FinancialServices'
+import Solutions from './pages/Solutions'
 import CaseStudies from './pages/CaseStudies'
 import About from './pages/About'
 import Insights from './pages/Insights'
@@ -36,8 +35,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/our-approach" element={<Approach />} />
-            <Route path="/solutions/healthcare" element={<Healthcare />} />
-            <Route path="/solutions/financial-services" element={<FinancialServices />} />
+            <Route path="/solutions" element={<Solutions />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/about" element={<About />} />
             <Route path="/insights" element={<Insights />} />
