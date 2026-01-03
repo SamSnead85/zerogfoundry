@@ -1,42 +1,54 @@
 @import "tailwindcss";
 
-/* ===== Zero G Foundry — Premium Dark Cinematic Design System ===== */
-/* Framer Awards-Inspired | Cinematic Dark | High-Contrast Typography */
+/* ===== Zero G Foundry — Million Dollar Premium Design System ===== */
+/* Awwwards-Inspired | Ultra-Premium Dark | Holographic Accents */
 
 @theme {
-  /* ===== Foundation — Ultra-Premium Deep Charcoal ===== */
-  --color-background: #0a0a0a;
-  --color-background-alt: #080808;
-  --color-background-elevated: #0f0f0f;
-  --color-surface: #141414;
-  --color-foreground: #f8f6f4;
-  --color-muted: rgba(248, 246, 244, 0.55);
-  --color-subtle: rgba(248, 246, 244, 0.35);
+  /* ===== Foundation — Obsidian Black ===== */
+  --color-background: #050505;
+  --color-background-alt: #030303;
+  --color-background-elevated: #0a0a0a;
+  --color-surface: #0f0f0f;
+  --color-foreground: #fafafa;
+  --color-muted: rgba(250, 250, 250, 0.6);
+  --color-subtle: rgba(250, 250, 250, 0.35);
 
-  /* ===== Surface & Card System — Refined Glass ===== */
-  --color-card: rgba(255, 255, 255, 0.025);
-  --color-card-hover: rgba(255, 255, 255, 0.055);
+  /* ===== Surface & Card System — Premium Glass ===== */
+  --color-card: rgba(255, 255, 255, 0.02);
+  --color-card-hover: rgba(255, 255, 255, 0.06);
   --color-card-elevated: rgba(255, 255, 255, 0.04);
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-strong: rgba(255, 255, 255, 0.08);
   --color-border: rgba(255, 255, 255, 0.06);
   --color-border-strong: rgba(255, 255, 255, 0.12);
-  --color-border-accent: rgba(200, 180, 160, 0.2);
+  --color-border-glow: rgba(201, 168, 108, 0.25);
 
-  /* ===== Accent — Platinum & Champagne (Luxury Tones) ===== */
-  --color-accent: #f8f6f4;
+  /* ===== Primary — Champagne & Gold (Luxury Core) ===== */
+  --color-accent: #fafafa;
   --color-accent-hover: #ffffff;
-  --color-accent-muted: rgba(248, 246, 244, 0.55);
+  --color-accent-muted: rgba(250, 250, 250, 0.6);
   --color-gold: #c9a86c;
-  --color-gold-light: #d4b88a;
-  --color-gold-muted: rgba(201, 168, 108, 0.12);
-  --color-champagne: #d4c4a8;
-  --color-platinum: #9ca5ae;
-  --color-rose: #c4a898;
+  --color-gold-light: #e4d4b8;
+  --color-gold-vibrant: #f0d494;
+  --color-gold-muted: rgba(201, 168, 108, 0.15);
+  --color-champagne: #e8dcc8;
+  --color-platinum: #a8b2bc;
+  --color-rose: #d4b4a4;
 
-  /* ===== Status — Sophisticated Muted Tones ===== */
-  --color-success: #6db889;
-  --color-success-muted: rgba(109, 184, 137, 0.12);
-  --color-warning: #d4a86c;
-  --color-error: #c87070;
+  /* ===== Iridescent — Holographic Accents (Premium Highlight) ===== */
+  --color-aurora-teal: #4fffed;
+  --color-aurora-teal-glow: rgba(79, 255, 237, 0.15);
+  --color-holographic-violet: #a855f7;
+  --color-holographic-violet-glow: rgba(168, 85, 247, 0.15);
+  --color-crystalline: rgba(255, 255, 255, 0.95);
+  --color-prism-pink: #f472b6;
+  --color-prism-blue: #60a5fa;
+
+  /* ===== Status — Refined Indicators ===== */
+  --color-success: #6ee7b7;
+  --color-success-muted: rgba(110, 231, 183, 0.15);
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
 
   /* ===== Typography — Luxury Editorial ===== */
   --font-display: "Playfair Display", Georgia, serif;
@@ -46,9 +58,9 @@
   --font-mono: "SF Mono", "Fira Code", ui-monospace, monospace;
 
   /* ===== Spacing — Luxurious Whitespace ===== */
-  --spacing-section: 7rem;
-  --spacing-section-lg: 10rem;
-  --spacing-hero: 12rem;
+  --spacing-section: 8rem;
+  --spacing-section-lg: 12rem;
+  --spacing-hero: 14rem;
 
   /* ===== Radius — Modern Refined ===== */
   --radius-xs: 0.125rem;
@@ -56,27 +68,28 @@
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
-  --radius-2xl: 1.25rem;
+  --radius-2xl: 1.5rem;
   --radius-full: 9999px;
 
-  /* ===== Shadows — Ethereal Depth ===== */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4);
-  --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.5);
-  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.03);
-  --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  --shadow-button: 0 2px 4px rgba(0, 0, 0, 0.25);
-  --shadow-button-hover: 0 6px 16px rgba(0, 0, 0, 0.35);
-  --shadow-gold: 0 4px 20px rgba(201, 168, 108, 0.12);
-  --shadow-gold-hover: 0 8px 36px rgba(201, 168, 108, 0.2);
-  --shadow-glow: 0 0 60px rgba(200, 180, 160, 0.08);
+  /* ===== Shadows — Cinematic Depth ===== */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.6);
+  --shadow-2xl: 0 48px 120px rgba(0, 0, 0, 0.7);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-card-hover: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --shadow-premium: 0 25px 80px rgba(0, 0, 0, 0.6), 0 0 120px rgba(201, 168, 108, 0.08);
+  --shadow-gold-glow: 0 0 60px rgba(201, 168, 108, 0.2), 0 0 120px rgba(201, 168, 108, 0.1);
+  --shadow-aurora-glow: 0 0 60px rgba(79, 255, 237, 0.15), 0 0 120px rgba(168, 85, 247, 0.1);
+  --shadow-holographic: 0 8px 40px rgba(168, 85, 247, 0.15), 0 0 80px rgba(79, 255, 237, 0.1);
 
-  /* ===== Transitions — Ultra-Smooth Motion ===== */
+  /* ===== Transitions — Silky Smooth Motion ===== */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-premium: 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-premium: 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-luxury: 800ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ===== Base Styles ===== */
@@ -659,6 +672,62 @@ a {
 
 .animate-pulse-gold {
   animation: pulse-gold 3s ease-in-out infinite;
+}
+
+/* ===== Holographic Shimmer Animation ===== */
+@keyframes holographic-shimmer {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes aurora-pulse {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1) rotate(3deg);
+  }
+}
+
+@keyframes crystalline-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(79, 255, 237, 0.1), 0 0 40px rgba(168, 85, 247, 0.05);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(79, 255, 237, 0.2), 0 0 80px rgba(168, 85, 247, 0.1);
+  }
+}
+
+.animate-holographic {
+  background: linear-gradient(90deg,
+      rgba(79, 255, 237, 0) 0%,
+      rgba(79, 255, 237, 0.15) 25%,
+      rgba(168, 85, 247, 0.15) 50%,
+      rgba(244, 114, 182, 0.15) 75%,
+      rgba(79, 255, 237, 0) 100%);
+  background-size: 200% 100%;
+  animation: holographic-shimmer 8s linear infinite;
+}
+
+.animate-aurora {
+  animation: aurora-pulse 6s ease-in-out infinite;
+}
+
+.animate-crystalline {
+  animation: crystalline-glow 4s ease-in-out infinite;
 }
 
 /* Hover Lift Effect */

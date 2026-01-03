@@ -29,39 +29,62 @@ export default function Navigation() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/80 backdrop-blur-xl border-b border-white/5' : 'bg-transparent'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+                    ? 'bg-[#050505]/85 backdrop-blur-2xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
+                    : 'bg-transparent'
                 }`}
         >
+            {/* Premium top accent line */}
+            <div className={`absolute inset-x-0 top-0 h-px transition-opacity duration-500 ${isScrolled ? 'opacity-100' : 'opacity-0'}`}>
+                <div className="h-full bg-gradient-to-r from-transparent via-[var(--color-gold)]/30 to-transparent" />
+            </div>
+
             <nav className="container flex items-center justify-between h-20" aria-label="Main navigation">
-                {/* Logo */}
-                <Link to="/" className="flex items-center gap-3" aria-label="Zero G Foundry Home">
-                    <span className="text-xl font-serif text-white">Zero G Foundry</span>
+                {/* Logo with premium styling */}
+                <Link to="/" className="flex items-center gap-3 group" aria-label="Zero G Foundry Home">
+                    <span className="text-xl font-serif text-white transition-all duration-300 group-hover:text-[var(--color-gold)]">
+                        Zero G Foundry
+                    </span>
                 </Link>
 
-                {/* Desktop Navigation */}
-                <div className="hidden lg:flex items-center gap-10">
+                {/* Desktop Navigation - Premium Links */}
+                <div className="hidden lg:flex items-center gap-12">
                     {navLinks.map((link) => (
                         <Link
                             key={link.href}
                             to={link.href}
-                            className={`text-sm text-white/50 hover:text-white transition-colors ${location.pathname === link.href ? 'text-white' : ''
+                            className={`relative text-sm font-medium transition-colors duration-300 ${location.pathname === link.href
+                                    ? 'text-white'
+                                    : 'text-white/50 hover:text-white'
                                 }`}
                         >
                             {link.label}
+                            {/* Active indicator with glow */}
+                            {location.pathname === link.href && (
+                                <motion.div
+                                    layoutId="navIndicator"
+                                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-gold)] to-[var(--color-aurora-teal)]"
+                                    style={{ boxShadow: '0 0 10px rgba(201, 168, 108, 0.5)' }}
+                                    transition={{ duration: 0.3 }}
+                                />
+                            )}
                         </Link>
                     ))}
                 </div>
 
-                {/* Desktop CTA */}
+                {/* Desktop CTA - Premium Button */}
                 <div className="hidden lg:flex items-center gap-4">
-                    <Link to="/contact" className="btn-executive">
+                    <Link
+                        to="/contact"
+                        className="inline-flex items-center px-6 py-2.5 bg-[var(--color-foreground)] text-[#050505] font-medium text-sm tracking-wide rounded-lg transition-all duration-500 hover:shadow-[0_0_40px_rgba(201,168,108,0.25)] hover:scale-[1.02]"
+                    >
                         Get Started
                     </Link>
                 </div>
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="lg:hidden p-2 text-white"
+                    className="lg:hidden p-2 text-white hover:text-[var(--color-gold)] transition-colors"
                     onClick={() => setIsMobileOpen(!isMobileOpen)}
                     aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
                     aria-expanded={isMobileOpen}
@@ -70,28 +93,39 @@ export default function Navigation() {
                 </button>
             </nav>
 
-            {/* Mobile Navigation */}
+            {/* Mobile Navigation - Premium Glass Panel */}
             <AnimatePresence>
                 {isMobileOpen && (
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-white/5"
+                        className="lg:hidden bg-[#050505]/95 backdrop-blur-2xl border-t border-white/5"
                     >
-                        <div className="container py-6 flex flex-col gap-4">
-                            {navLinks.map((link) => (
-                                <Link
+                        <div className="container py-8 flex flex-col gap-6">
+                            {navLinks.map((link, index) => (
+                                <motion.div
                                     key={link.href}
-                                    to={link.href}
-                                    className={`block text-white/60 hover:text-white py-2 ${location.pathname === link.href ? 'text-white' : ''
-                                        }`}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: index * 0.1 }}
                                 >
-                                    {link.label}
-                                </Link>
+                                    <Link
+                                        to={link.href}
+                                        className={`block text-lg font-medium py-2 transition-colors ${location.pathname === link.href
+                                                ? 'text-[var(--color-gold)]'
+                                                : 'text-white/60 hover:text-white'
+                                            }`}
+                                    >
+                                        {link.label}
+                                    </Link>
+                                </motion.div>
                             ))}
-                            <div className="pt-4 border-t border-white/10">
-                                <Link to="/contact" className="btn-executive w-full text-center">
+                            <div className="pt-6 border-t border-white/10">
+                                <Link
+                                    to="/contact"
+                                    className="inline-flex items-center justify-center w-full px-6 py-3 bg-[var(--color-foreground)] text-[#050505] font-medium text-sm tracking-wide rounded-lg transition-all duration-300 hover:shadow-[0_0_40px_rgba(201,168,108,0.25)]"
+                                >
                                     Get Started
                                 </Link>
                             </div>

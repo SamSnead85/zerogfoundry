@@ -17,167 +17,175 @@ import {
 export default function Home() {
     return (
         <>
-            {/* Premium Hero Section — Luxury Mesh Gradient Design */}
-            <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0a0a0a]">
-                {/* Ultra-Premium Organic Mesh Background */}
+            {/* Ultra-Premium Hero Section — Holographic Mesh Design */}
+            <section className="relative min-h-screen flex items-center overflow-hidden bg-[#050505]">
+                {/* Million-Dollar Organic Mesh Background */}
                 <div className="absolute inset-0">
-                    {/* Subtle grain texture */}
+                    {/* Premium grain texture */}
                     <div
-                        className="absolute inset-0 opacity-[0.025]"
+                        className="absolute inset-0 opacity-[0.02]"
                         style={{
-                            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
                         }}
                     />
 
-                    {/* Organic Blob 1 - Champagne Gold Top Left */}
+                    {/* Primary Gold Orb - Top Left */}
                     <motion.div
-                        className="absolute -top-40 -left-40 w-[700px] h-[700px] rounded-full"
+                        className="absolute -top-32 -left-32 w-[800px] h-[800px] rounded-full"
                         style={{
-                            background: 'radial-gradient(circle, rgba(201, 168, 108, 0.15) 0%, transparent 70%)',
-                            filter: 'blur(100px)',
+                            background: 'radial-gradient(circle, rgba(201, 168, 108, 0.18) 0%, transparent 70%)',
+                            filter: 'blur(120px)',
                         }}
                         animate={{
-                            x: [0, 40, -30, 20, 0],
-                            y: [0, 30, -20, 40, 0],
-                            scale: [1, 1.1, 0.95, 1.05, 1],
+                            x: [0, 50, -40, 30, 0],
+                            y: [0, 40, -30, 50, 0],
+                            scale: [1, 1.15, 0.9, 1.1, 1],
                         }}
                         transition={{
-                            duration: 30,
+                            duration: 35,
                             ease: "easeInOut",
                             repeat: Infinity,
                         }}
                     />
 
-                    {/* Organic Blob 2 - Rose/Blush Top Right */}
+                    {/* Aurora Teal Orb - Top Right */}
                     <motion.div
-                        className="absolute -top-20 -right-60 w-[600px] h-[600px] rounded-full"
+                        className="absolute -top-20 -right-40 w-[700px] h-[700px] rounded-full"
                         style={{
-                            background: 'radial-gradient(circle, rgba(196, 168, 152, 0.12) 0%, transparent 70%)',
-                            filter: 'blur(90px)',
+                            background: 'radial-gradient(circle, rgba(79, 255, 237, 0.08) 0%, transparent 70%)',
+                            filter: 'blur(100px)',
                         }}
                         animate={{
-                            x: [0, -35, 25, -15, 0],
-                            y: [0, 25, -30, 20, 0],
-                            scale: [1, 0.95, 1.1, 1, 1],
+                            x: [0, -45, 35, -25, 0],
+                            y: [0, 35, -40, 30, 0],
+                            scale: [1, 0.9, 1.15, 0.95, 1],
                         }}
                         transition={{
-                            duration: 25,
+                            duration: 30,
+                            ease: "easeInOut",
+                            repeat: Infinity,
+                            delay: 3,
+                        }}
+                    />
+
+                    {/* Holographic Violet Orb - Center */}
+                    <motion.div
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full"
+                        style={{
+                            background: 'radial-gradient(circle, rgba(168, 85, 247, 0.06) 0%, transparent 70%)',
+                            filter: 'blur(140px)',
+                        }}
+                        animate={{
+                            x: [0, 60, -50, 40, 0],
+                            y: [0, -40, 35, -30, 0],
+                            scale: [1, 1.1, 0.95, 1.08, 1],
+                        }}
+                        transition={{
+                            duration: 40,
                             ease: "easeInOut",
                             repeat: Infinity,
                             delay: 2,
                         }}
                     />
 
-                    {/* Organic Blob 3 - Platinum/Silver Center */}
-                    <motion.div
-                        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full"
-                        style={{
-                            background: 'radial-gradient(circle, rgba(156, 165, 174, 0.08) 0%, transparent 70%)',
-                            filter: 'blur(120px)',
-                        }}
-                        animate={{
-                            x: [0, 50, -40, 30, 0],
-                            y: [0, -30, 25, -20, 0],
-                            scale: [1, 1.05, 0.98, 1.02, 1],
-                        }}
-                        transition={{
-                            duration: 35,
-                            ease: "easeInOut",
-                            repeat: Infinity,
-                            delay: 1,
-                        }}
-                    />
-
-                    {/* Refined Grid Pattern */}
+                    {/* Premium Grid Pattern */}
                     <div
-                        className="absolute inset-0 opacity-[0.012]"
+                        className="absolute inset-0 opacity-[0.01]"
                         style={{
                             backgroundImage: `
-                                linear-gradient(rgba(248, 246, 244, 0.4) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(248, 246, 244, 0.4) 1px, transparent 1px)
+                                linear-gradient(rgba(250, 250, 250, 0.5) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(250, 250, 250, 0.5) 1px, transparent 1px)
                             `,
-                            backgroundSize: '80px 80px',
+                            backgroundSize: '100px 100px',
                         }}
                     />
 
-                    {/* Soft Vignette */}
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_60%_at_50%_45%,transparent_0%,rgba(10,10,10,0.5)_100%)]" />
+                    {/* Cinematic Vignette */}
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_65%_at_50%_45%,transparent_0%,rgba(5,5,5,0.6)_100%)]" />
 
                     {/* Bottom gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
                 </div>
 
-                <div className="container relative z-10 py-32 md:py-40">
-                    <div className="max-w-4xl">
+                <div className="container relative z-10 py-36 md:py-44">
+                    <div className="max-w-5xl">
                         <motion.div
-                            initial={{ opacity: 0, y: 40 }}
+                            initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            {/* Refined Eyebrow */}
-                            <p className="text-[0.8rem] tracking-[0.25em] uppercase text-[var(--color-champagne)]/70 mb-8 font-light">
-                                AI Transformation Consultancy
-                            </p>
-
-                            {/* Elegant Display Headline */}
-                            <h1 className="font-serif text-[clamp(3.5rem,9vw,6rem)] font-normal leading-[0.95] tracking-[-0.02em] text-[var(--color-foreground)] mb-10">
+                            {/* Ultra-Premium Display Headline */}
+                            <h1 className="font-serif text-[clamp(3.5rem,10vw,7rem)] font-normal leading-[0.9] tracking-[-0.025em] text-[var(--color-foreground)] mb-8">
                                 From Demo to
                                 <br />
-                                <span className="italic font-light text-[var(--color-champagne)]">Production</span>
+                                <span
+                                    className="italic font-light"
+                                    style={{
+                                        background: 'linear-gradient(135deg, #fafafa 0%, rgba(201, 168, 108, 0.9) 50%, #fafafa 100%)',
+                                        backgroundSize: '200% auto',
+                                        WebkitBackgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                        backgroundClip: 'text',
+                                        animation: 'shimmer 4s ease-in-out infinite',
+                                    }}
+                                >
+                                    Production
+                                </span>
                             </h1>
 
-                            {/* Refined Subtitle */}
-                            <p className="text-lg md:text-xl text-[var(--color-muted)] mb-12 max-w-xl leading-relaxed font-light tracking-wide">
-                                We transform complex operational challenges into production-grade AI workflows for Fortune 1000 companies.
-                                <span className="text-[var(--color-foreground)] font-medium"> Guaranteed outcomes.</span>
+                            {/* Enhanced Subtitle */}
+                            <p className="text-lg md:text-xl text-[var(--color-muted)] mb-14 max-w-2xl leading-[1.8] font-light tracking-wide">
+                                We transform complex operational challenges into
+                                <span className="text-[var(--color-foreground)]"> production-grade AI workflows</span> for
+                                enterprise clients. Guaranteed outcomes, measurable results.
                             </p>
 
                             {/* Premium CTA Buttons */}
-                            <div className="flex flex-wrap gap-5 mb-20">
+                            <div className="flex flex-wrap gap-5 mb-24">
                                 <Link
                                     to="/contact"
-                                    className="inline-flex items-center px-8 py-4 bg-[var(--color-foreground)] text-[#0a0a0a] font-medium text-[0.9375rem] tracking-wide rounded-lg transition-all duration-300 hover:bg-[var(--color-champagne)] hover:shadow-[0_8px_30px_rgba(201,168,108,0.15)]"
+                                    className="group inline-flex items-center px-8 py-4 bg-[var(--color-foreground)] text-[#050505] font-medium text-[0.9375rem] tracking-wide rounded-xl transition-all duration-500 hover:shadow-[0_0_60px_rgba(201,168,108,0.3)] hover:scale-[1.02]"
                                 >
                                     Schedule Executive Briefing
-                                    <ArrowRight className="w-4 h-4 ml-3" />
+                                    <ArrowRight className="w-4 h-4 ml-3 transition-transform group-hover:translate-x-1" />
                                 </Link>
                                 <Link
                                     to="/methodology"
-                                    className="inline-flex items-center px-8 py-4 border border-[var(--color-border-strong)] text-[var(--color-foreground)] font-medium text-[0.9375rem] tracking-wide rounded-lg transition-all duration-300 hover:bg-[var(--color-card-hover)] hover:border-[var(--color-champagne)]/30"
+                                    className="inline-flex items-center px-8 py-4 border border-[var(--color-border-strong)] text-[var(--color-foreground)] font-medium text-[0.9375rem] tracking-wide rounded-xl transition-all duration-500 hover:bg-[var(--color-glass)] hover:border-[var(--color-gold)]/30 hover:shadow-[0_0_40px_rgba(79,255,237,0.1)]"
                                 >
-                                    Our Methodology
+                                    Explore Methodology
                                 </Link>
                             </div>
                         </motion.div>
 
-                        {/* Elegant Metrics Bar */}
+                        {/* Premium Metrics Bar with Glow Effects */}
                         <motion.div
-                            className="grid grid-cols-3 gap-10 md:gap-20 pt-12 border-t border-[var(--color-border)]"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.8, duration: 1.2 }}
+                            className="grid grid-cols-3 gap-10 md:gap-24 pt-14 border-t border-[var(--color-border)]"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 1, duration: 1.2 }}
                         >
-                            <div>
-                                <div className="text-[2rem] md:text-[2.5rem] font-serif font-normal text-[var(--color-foreground)] tracking-tight">
+                            <div className="group">
+                                <div className="text-[2.25rem] md:text-[3rem] font-serif font-normal text-[var(--color-foreground)] tracking-tight transition-all duration-500 group-hover:text-[var(--color-gold)]">
                                     $12M<span className="text-[var(--color-muted)]">+</span>
                                 </div>
-                                <div className="text-[0.7rem] text-[var(--color-subtle)] uppercase tracking-[0.2em] mt-3 font-light">
+                                <div className="text-[0.65rem] text-[var(--color-subtle)] uppercase tracking-[0.25em] mt-3 font-medium">
                                     Average Savings
                                 </div>
                             </div>
-                            <div>
-                                <div className="text-[2rem] md:text-[2.5rem] font-serif font-normal text-[var(--color-foreground)] tracking-tight">
+                            <div className="group">
+                                <div className="text-[2.25rem] md:text-[3rem] font-serif font-normal text-[var(--color-foreground)] tracking-tight transition-all duration-500 group-hover:text-[var(--color-aurora-teal)]">
                                     95<span className="text-[var(--color-muted)]">%</span>
                                 </div>
-                                <div className="text-[0.7rem] text-[var(--color-subtle)] uppercase tracking-[0.2em] mt-3 font-light">
+                                <div className="text-[0.65rem] text-[var(--color-subtle)] uppercase tracking-[0.25em] mt-3 font-medium">
                                     Production Accuracy
                                 </div>
                             </div>
-                            <div>
-                                <div className="text-[2rem] md:text-[2.5rem] font-serif font-normal text-[var(--color-foreground)] tracking-tight">
+                            <div className="group">
+                                <div className="text-[2.25rem] md:text-[3rem] font-serif font-normal text-[var(--color-foreground)] tracking-tight transition-all duration-500 group-hover:text-[var(--color-holographic-violet)]">
                                     5<span className="text-[var(--color-muted)]">x</span>
                                 </div>
-                                <div className="text-[0.7rem] text-[var(--color-subtle)] uppercase tracking-[0.2em] mt-3 font-light">
+                                <div className="text-[0.65rem] text-[var(--color-subtle)] uppercase tracking-[0.25em] mt-3 font-medium">
                                     ROI Multiple
                                 </div>
                             </div>
@@ -460,7 +468,7 @@ export default function Home() {
                     <SectionHeader
                         badge="Results That Speak"
                         title="Proven Track Record"
-                        subtitle="Real outcomes from real engagements with Fortune 1000 companies."
+                        subtitle="Real outcomes from real engagements with enterprise clients."
                     />
                 </ScrollReveal>
 

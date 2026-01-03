@@ -45,7 +45,7 @@ const openRoles = [
         title: 'Senior AI Engineer',
         department: 'Engineering',
         location: 'San Francisco / Remote',
-        description: 'Build production-grade AI systems for Fortune 1000 clients.',
+        description: 'Build production-grade AI systems for enterprise clients.',
     },
     {
         title: 'AI Strategy Consultant',
@@ -191,7 +191,7 @@ export default function About() {
                                         </div>
                                         <div>
                                             <span className="text-white font-medium">Impact at Scale</span>
-                                            <p className="text-sm text-[var(--color-muted)]">Work on AI systems that transform Fortune 1000 operations</p>
+                                            <p className="text-sm text-[var(--color-muted)]">Work on AI systems that transform enterprise operations</p>
                                         </div>
                                     </li>
                                     <li className="flex items-start gap-3">
