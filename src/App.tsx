@@ -9,9 +9,16 @@ import Insights from './pages/Insights'
 import Contact from './pages/Contact'
 import Legal from './pages/Legal'
 import Assessment from './pages/Assessment'
+import AssessmentV2 from './pages/AssessmentV2'
 import Research from './pages/Research'
 import ROICalculator from './pages/ROICalculator'
 import CaseStudies from './pages/CaseStudies'
+import Industries from './pages/Industries'
+import Security from './pages/Security'
+import FAQ from './pages/FAQ'
+import Team from './pages/Team'
+import Careers from './pages/Careers'
+import Partners from './pages/Partners'
 
 function App() {
   return (
@@ -40,14 +47,20 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/legal" element={<Legal />} />
             <Route path="/assessment" element={<Assessment />} />
+            <Route path="/assessment-v2" element={<AssessmentV2 />} />
             <Route path="/roi-calculator" element={<ROICalculator />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/industries" element={<Industries />} />
+            <Route path="/security" element={<Security />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/partners" element={<Partners />} />
 
             {/* Redirects for old routes */}
             <Route path="/our-approach" element={<Navigate to="/methodology" replace />} />
-            <Route path="/solutions" element={<Navigate to="/" replace />} />
-            <Route path="/solutions/*" element={<Navigate to="/" replace />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-            <Route path="/careers" element={<Navigate to="/about" replace />} />
+            <Route path="/solutions" element={<Navigate to="/industries" replace />} />
+            <Route path="/solutions/*" element={<Navigate to="/industries" replace />} />
             <Route path="/investors" element={<Navigate to="/contact" replace />} />
             <Route path="/privacy" element={<Navigate to="/legal" replace />} />
             <Route path="/terms" element={<Navigate to="/legal" replace />} />
