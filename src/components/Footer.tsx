@@ -2,15 +2,26 @@ import { Link } from 'react-router-dom'
 import { Linkedin, Twitter, Mail, MapPin } from 'lucide-react'
 
 const footerLinks = {
+    solutions: [
+        { label: 'Industries', href: '/industries' },
+        { label: 'Case Studies', href: '/case-studies' },
+        { label: 'ROI Calculator', href: '/roi-calculator' },
+        { label: 'Assessment', href: '/assessment' },
+    ],
     company: [
         { label: 'About', href: '/about' },
-        { label: 'Contact', href: '/contact' },
+        { label: 'Team', href: '/team' },
+        { label: 'Careers', href: '/careers' },
+        { label: 'Partners', href: '/partners' },
     ],
     resources: [
         { label: 'Methodology', href: '/methodology' },
+        { label: 'Research', href: '/research' },
         { label: 'Insights', href: '/insights' },
+        { label: 'FAQ', href: '/faq' },
     ],
-    legal: [
+    trust: [
+        { label: 'Security', href: '/security' },
         { label: 'Privacy Policy', href: '/legal' },
         { label: 'Terms of Service', href: '/legal' },
     ],
@@ -66,12 +77,29 @@ export default function Footer() {
                         </div>
                     </div>
 
+                    {/* Solutions Links */}
+                    <div>
+                        <h4 className="text-sm font-semibold text-[var(--color-foreground)] uppercase tracking-wider mb-5">Solutions</h4>
+                        <ul className="space-y-4">
+                            {footerLinks.solutions.map((link) => (
+                                <li key={link.href + link.label}>
+                                    <Link
+                                        to={link.href}
+                                        className="text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors duration-300"
+                                    >
+                                        {link.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
                     {/* Company Links */}
                     <div>
                         <h4 className="text-sm font-semibold text-[var(--color-foreground)] uppercase tracking-wider mb-5">Company</h4>
                         <ul className="space-y-4">
                             {footerLinks.company.map((link) => (
-                                <li key={link.href}>
+                                <li key={link.href + link.label}>
                                     <Link
                                         to={link.href}
                                         className="text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors duration-300"
@@ -88,7 +116,7 @@ export default function Footer() {
                         <h4 className="text-sm font-semibold text-[var(--color-foreground)] uppercase tracking-wider mb-5">Resources</h4>
                         <ul className="space-y-4">
                             {footerLinks.resources.map((link) => (
-                                <li key={link.href}>
+                                <li key={link.href + link.label}>
                                     <Link
                                         to={link.href}
                                         className="text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors duration-300"
@@ -124,7 +152,7 @@ export default function Footer() {
                         &copy; {currentYear} Zero G Foundry. All rights reserved.
                     </p>
                     <div className="flex gap-8">
-                        {footerLinks.legal.map((link) => (
+                        {footerLinks.trust.map((link) => (
                             <Link
                                 key={link.label}
                                 to={link.href}
