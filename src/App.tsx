@@ -11,6 +11,7 @@ import Legal from './pages/Legal'
 import Assessment from './pages/Assessment'
 import Research from './pages/Research'
 import ROICalculator from './pages/ROICalculator'
+import CaseStudies from './pages/CaseStudies'
 
 function App() {
   return (
@@ -45,7 +46,7 @@ function App() {
             <Route path="/our-approach" element={<Navigate to="/methodology" replace />} />
             <Route path="/solutions" element={<Navigate to="/" replace />} />
             <Route path="/solutions/*" element={<Navigate to="/" replace />} />
-            <Route path="/case-studies" element={<Navigate to="/methodology" replace />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/careers" element={<Navigate to="/about" replace />} />
             <Route path="/investors" element={<Navigate to="/contact" replace />} />
             <Route path="/privacy" element={<Navigate to="/legal" replace />} />
