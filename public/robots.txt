@@ -1,0 +1,27 @@
+# Zero G Foundry - Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://zerogfoundry.com/sitemap.xml
+
+# AI Crawlers - Welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# Block sensitive paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
