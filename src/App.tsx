@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import Legal from './pages/Legal'
 import Assessment from './pages/Assessment'
 import Research from './pages/Research'
+import ROICalculator from './pages/ROICalculator'
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/legal" element={<Legal />} />
             <Route path="/assessment" element={<Assessment />} />
+            <Route path="/roi-calculator" element={<ROICalculator />} />
 
             {/* Redirects for old routes */}
             <Route path="/our-approach" element={<Navigate to="/methodology" replace />} />
