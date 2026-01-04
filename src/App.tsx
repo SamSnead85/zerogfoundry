@@ -9,6 +9,7 @@ import Insights from './pages/Insights'
 import Contact from './pages/Contact'
 import Legal from './pages/Legal'
 import Assessment from './pages/Assessment'
+import Research from './pages/Research'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/methodology" element={<Approach />} />
             <Route path="/about" element={<About />} />
             <Route path="/insights" element={<Insights />} />
+            <Route path="/research" element={<Research />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/legal" element={<Legal />} />
             <Route path="/assessment" element={<Assessment />} />

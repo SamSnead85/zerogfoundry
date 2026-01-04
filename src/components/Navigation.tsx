@@ -7,6 +7,7 @@ const navLinks = [
     { label: 'Assessment', href: '/assessment' },
     { label: 'Methodology', href: '/methodology' },
     { label: 'Insights', href: '/insights' },
+    { label: 'Research', href: '/research' },
     { label: 'About', href: '/about' },
 ]
 
@@ -30,8 +31,8 @@ export default function Navigation() {
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-                    ? 'bg-[#050505]/85 backdrop-blur-2xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
-                    : 'bg-transparent'
+                ? 'bg-[#050505]/85 backdrop-blur-2xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
+                : 'bg-transparent'
                 }`}
         >
             {/* Premium top accent line */}
@@ -54,8 +55,8 @@ export default function Navigation() {
                             key={link.href}
                             to={link.href}
                             className={`relative text-sm font-medium transition-colors duration-300 ${location.pathname === link.href
-                                    ? 'text-white'
-                                    : 'text-white/50 hover:text-white'
+                                ? 'text-white'
+                                : 'text-white/50 hover:text-white'
                                 }`}
                         >
                             {link.label}
@@ -113,8 +114,8 @@ export default function Navigation() {
                                     <Link
                                         to={link.href}
                                         className={`block text-lg font-medium py-2 transition-colors ${location.pathname === link.href
-                                                ? 'text-[var(--color-gold)]'
-                                                : 'text-white/60 hover:text-white'
+                                            ? 'text-[var(--color-gold)]'
+                                            : 'text-white/60 hover:text-white'
                                             }`}
                                     >
                                         {link.label}

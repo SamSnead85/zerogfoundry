@@ -1,4 +1,4 @@
-import { ArrowRight, Clock, User, BookOpen, TrendingUp, Lightbulb, Building2, Heart } from 'lucide-react'
+import { ArrowRight, Clock, BookOpen, TrendingUp, Lightbulb, Building2, Heart } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 import {
@@ -11,40 +11,47 @@ import {
     StaggerItem,
 } from '../components'
 
+// Author profiles with credentials
+const authors = {
+    samSweilem: {
+        name: 'Sam Sweilem',
+        title: 'Founder & CEO',
+        credentials: 'Ex-Accenture VP | 20+ yrs Enterprise AI',
+        initials: 'SS',
+        color: 'var(--color-gold)',
+    },
+    mayaKrishnan: {
+        name: 'Dr. Maya Krishnan',
+        title: 'Chief Technology Officer',
+        credentials: 'Ex-Google AI | Stanford PhD',
+        initials: 'MK',
+        color: 'var(--color-accent)',
+    },
+    jamesRichardson: {
+        name: 'James Richardson',
+        title: 'Chief Strategy Officer',
+        credentials: 'Ex-McKinsey Partner | FinServ Focus',
+        initials: 'JR',
+        color: 'var(--color-success)',
+    },
+    researchTeam: {
+        name: 'Research Team',
+        title: 'Zero G Foundry',
+        credentials: 'Enterprise AI Specialists',
+        initials: 'ZG',
+        color: 'var(--color-champagne)',
+    },
+}
+
 const articles = [
     {
         slug: 'the-200b-last-mile-problem',
         title: 'The $200B Last Mile Problem: Why 95% of AI Projects Fail',
         summary: 'Enterprise AI has a dirty secret: the vast majority of projects never deliver meaningful ROI. We analyze the systemic causes and what it takes to break through.',
-        content: `The AI industry has achieved remarkable technical breakthroughs. Models can now generate human-quality text, recognize images with superhuman accuracy, and solve complex reasoning problems. Yet despite these advances, a troubling pattern persists: **95% of enterprise AI projects fail to deliver meaningful ROI**.
-
-This isn't a technology problem—it's a deployment problem. We call it the "Last Mile Problem," and it represents a $200 billion gap between AI's potential and its reality.
-
-**The Demo Deception**
-
-Every AI vendor can produce an impressive demo. In controlled conditions, with curated data, models achieve accuracy rates that seem transformational. But production environments are messy. Edge cases multiply. Data quality varies. User behavior defies predictions.
-
-A model that works 60% of the time in a demo is a 100% failure in production. If your claims processing AI incorrectly adjudicates 4 out of 10 claims, you haven't automated anything—you've created a new quality control problem.
-
-**Why Traditional Approaches Fail**
-
-The typical enterprise AI project follows a predictable pattern:
-1. Exciting proof of concept with demo data
-2. Extended pilot with disappointing results
-3. Scope reduction and timeline extension
-4. Quiet sunsetting after millions spent
-
-This happens because most approaches underestimate three critical challenges:
-- **Data scarcity**: Production-quality training data is expensive and rare
-- **Domain complexity**: Business logic can't be learned from general datasets
-- **Trust gaps**: Users won't adopt AI they can't trust
-
-**The Path Forward**
-
-Breaking through the last mile requires a fundamentally different approach—one that combines high-performance infrastructure, synthetic data generation, and human-in-the-loop reinforcement learning. It's not enough to build smart models; you must build trustworthy ones.`,
+        content: `The AI industry has achieved remarkable technical breakthroughs. Models can now generate human-quality text, recognize images with superhuman accuracy, and solve complex reasoning problems. Yet despite these advances, a troubling pattern persists: **95% of enterprise AI projects fail to deliver meaningful ROI**.\n\nThis isn't a technology problem—it's a deployment problem. We call it the \"Last Mile Problem,\" and it represents a $200 billion gap between AI's potential and its reality.\n\n**The Demo Deception**\n\nEvery AI vendor can produce an impressive demo. In controlled conditions, with curated data, models achieve accuracy rates that seem transformational. But production environments are messy. Edge cases multiply. Data quality varies. User behavior defies predictions.\n\nA model that works 60% of the time in a demo is a 100% failure in production. If your claims processing AI incorrectly adjudicates 4 out of 10 claims, you haven't automated anything—you've created a new quality control problem.\n\n**Why Traditional Approaches Fail**\n\nThe typical enterprise AI project follows a predictable pattern:\n1. Exciting proof of concept with demo data\n2. Extended pilot with disappointing results\n3. Scope reduction and timeline extension\n4. Quiet sunsetting after millions spent\n\nThis happens because most approaches underestimate three critical challenges:\n- **Data scarcity**: Production-quality training data is expensive and rare\n- **Domain complexity**: Business logic can't be learned from general datasets\n- **Trust gaps**: Users won't adopt AI they can't trust\n\n**The Path Forward**\n\nBreaking through the last mile requires a fundamentally different approach—one that combines high-performance infrastructure, synthetic data generation, and human-in-the-loop reinforcement learning. It's not enough to build smart models; you must build trustworthy ones.`,
         category: 'Industry Analysis',
         readTime: '12 min read',
-        author: 'Zero G Foundry',
+        author: authors.samSweilem,
         featured: true,
         icon: TrendingUp,
     },
@@ -71,7 +78,7 @@ When a claims adjuster reviews 1,000 edge cases and provides feedback on the AI'
 - Measure trust, not just accuracy`,
         category: 'Technical Deep Dive',
         readTime: '8 min read',
-        author: 'Zero G Foundry',
+        author: authors.mayaKrishnan,
         featured: true,
         icon: Lightbulb,
     },
@@ -106,7 +113,7 @@ Value-based pricing aligns incentives without the pitfalls:
 This model gives clients cost certainty while keeping vendors focused on outcomes.`,
         category: 'Strategy',
         readTime: '6 min read',
-        author: 'Zero G Foundry',
+        author: authors.jamesRichardson,
         featured: false,
         icon: BookOpen,
     },
@@ -145,7 +152,7 @@ Here's what production-grade actually requires:
 If your vendor can't document performance against these criteria, you don't have production-grade AI—you have an expensive experiment.`,
         category: 'Technical Deep Dive',
         readTime: '10 min read',
-        author: 'Zero G Foundry',
+        author: authors.mayaKrishnan,
         featured: false,
         icon: Lightbulb,
     },
@@ -177,7 +184,7 @@ The path to agentic AI starts with production-grade AI for individual tasks. You
 3. Designing workflows for progressive autonomy`,
         category: 'Market Analysis',
         readTime: '7 min read',
-        author: 'Zero G Foundry',
+        author: authors.samSweilem,
         featured: false,
         icon: TrendingUp,
     },
@@ -209,7 +216,7 @@ Organizations that build compliant AI infrastructure gain sustainable advantages
 - Greater clinician trust and adoption`,
         category: 'Healthcare',
         readTime: '9 min read',
-        author: 'Zero G Foundry',
+        author: authors.researchTeam,
         featured: false,
         icon: Heart,
     },
@@ -240,7 +247,7 @@ The highest-ROI applications in financial services:
 Stop running pilots. Start building production. The technology is ready—the question is whether your organization is.`,
         category: 'Financial Services',
         readTime: '8 min read',
-        author: 'Zero G Foundry',
+        author: authors.jamesRichardson,
         featured: false,
         icon: Building2,
     },
@@ -305,20 +312,22 @@ export default function Insights() {
                                 </div>
 
                                 <div className="flex items-center justify-between pt-4 border-t border-[var(--color-border)]">
-                                    <div className="flex items-center gap-4 text-sm text-[var(--color-muted)]">
-                                        <span className="flex items-center gap-1">
-                                            <User className="w-4 h-4" />
-                                            {article.author}
-                                        </span>
-                                        <span className="flex items-center gap-1">
-                                            <Clock className="w-4 h-4" />
-                                            {article.readTime}
-                                        </span>
+                                    <div className="flex items-center gap-3">
+                                        <div
+                                            className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold"
+                                            style={{ backgroundColor: `${article.author.color}20`, color: article.author.color }}
+                                        >
+                                            {article.author.initials}
+                                        </div>
+                                        <div>
+                                            <p className="text-sm text-white font-medium">{article.author.name}</p>
+                                            <p className="text-xs text-[var(--color-subtle)]">{article.author.credentials}</p>
+                                        </div>
                                     </div>
-                                    <button className="text-[var(--color-accent)] text-sm font-medium flex items-center gap-1 hover:gap-2 transition-all">
-                                        Read More
-                                        <ArrowRight className="w-4 h-4" />
-                                    </button>
+                                    <span className="flex items-center gap-1 text-xs text-[var(--color-muted)]">
+                                        <Clock className="w-3 h-3" />
+                                        {article.readTime}
+                                    </span>
                                 </div>
                             </Card>
                         </ScrollReveal>
