@@ -1,57 +1,20 @@
-import { useRef, type ReactNode } from 'react'
-import { motion, useInView, type Variants } from 'framer-motion'
-
-type Direction = 'up' | 'down' | 'left' | 'right' | 'none'
+import { type ReactNode } from 'react'
 
 interface ScrollRevealProps {
     children: ReactNode
-    direction?: Direction
+    direction?: 'up' | 'down' | 'left' | 'right' | 'none'
     delay?: number
     duration?: number
     className?: string
     once?: boolean
 }
 
-const getVariants = (direction: Direction): Variants => {
-    const distance = 30
-
-    const hiddenState: Record<Direction, { opacity: number; x?: number; y?: number }> = {
-        up: { opacity: 0, y: distance },
-        down: { opacity: 0, y: -distance },
-        left: { opacity: 0, x: distance },
-        right: { opacity: 0, x: -distance },
-        none: { opacity: 0 },
-    }
-
-    return {
-        hidden: hiddenState[direction],
-        visible: { opacity: 1, x: 0, y: 0 },
-    }
-}
-
+// Disabled scroll animations for better user experience - content shows immediately
 export default function ScrollReveal({
     children,
-    direction = 'up',
-    delay = 0,
-    duration = 0.6,
     className = '',
-    once = true,
 }: ScrollRevealProps) {
-    const ref = useRef(null)
-    const isInView = useInView(ref, { once, margin: '-100px' })
-
-    return (
-        <motion.div
-            ref={ref}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            variants={getVariants(direction)}
-            transition={{ duration, delay, ease: 'easeOut' }}
-            className={className}
-        >
-            {children}
-        </motion.div>
-    )
+    return <div className={className}>{children}</div>
 }
 
 // Staggered children variant
@@ -64,29 +27,8 @@ interface StaggerContainerProps {
 export function StaggerContainer({
     children,
     className = '',
-    staggerDelay = 0.1,
 }: StaggerContainerProps) {
-    const ref = useRef(null)
-    const isInView = useInView(ref, { once: true, margin: '-100px' })
-
-    return (
-        <motion.div
-            ref={ref}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            variants={{
-                hidden: {},
-                visible: {
-                    transition: {
-                        staggerChildren: staggerDelay,
-                    },
-                },
-            }}
-            className={className}
-        >
-            {children}
-        </motion.div>
-    )
+    return <div className={className}>{children}</div>
 }
 
 // Child item for stagger effect
@@ -96,16 +38,6 @@ interface StaggerItemProps {
 }
 
 export function StaggerItem({ children, className = '' }: StaggerItemProps) {
-    return (
-        <motion.div
-            variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className={className}
-        >
-            {children}
-        </motion.div>
-    )
+    return <div className={className}>{children}</div>
 }
+

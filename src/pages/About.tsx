@@ -6,8 +6,6 @@ import {
     Button,
     Card,
     ScrollReveal,
-    StaggerContainer,
-    StaggerItem,
 } from '../components'
 
 const values = [
@@ -59,15 +57,6 @@ const openRoles = [
         location: 'Remote',
         description: 'Deep healthcare expertise to drive AI adoption in payer and provider organizations.',
     },
-]
-
-const teamAreas = [
-    'AI Engineering',
-    'Strategy & Consulting',
-    'Data Science',
-    'Healthcare Expertise',
-    'Financial Services',
-    'Product & Delivery',
 ]
 
 export default function About() {
@@ -131,40 +120,118 @@ export default function About() {
                 </ScrollReveal>
             </Section>
 
-            {/* Team Section */}
+            {/* Executive Leadership Section */}
             <Section>
                 <ScrollReveal>
                     <SectionHeader
-                        badge="The Team"
-                        title="Elite AI Specialists"
-                        subtitle="A handpicked team of operators, engineers, and strategists."
+                        badge="Leadership"
+                        title="Executive Team"
+                        subtitle="Industry veterans with deep enterprise AI expertise."
                     />
                 </ScrollReveal>
 
-                <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    {teamAreas.map((specialty) => (
-                        <StaggerItem key={specialty}>
-                            <Card className="p-6">
-                                <div className="w-10 h-10 rounded-md bg-[var(--color-card-elevated)] border border-[var(--color-border)] flex items-center justify-center mb-4">
-                                    <span className="text-[var(--color-muted)] text-sm font-semibold">
-                                        {specialty.split(' ')[0][0]}
-                                    </span>
+                <div className="grid md:grid-cols-3 gap-8 mb-16">
+                    {[
+                        {
+                            initials: 'SS',
+                            name: 'Sam Sweilem',
+                            title: 'Founder & CEO',
+                            background: 'Former VP of AI Strategy, Accenture',
+                            credentials: ['20+ years enterprise consulting', 'Led $500M+ AI transformations', 'Published author on enterprise AI'],
+                            color: 'var(--color-gold)',
+                        },
+                        {
+                            initials: 'MK',
+                            name: 'Dr. Maya Krishnan',
+                            title: 'Chief Technology Officer',
+                            background: 'Former Principal Engineer, Google AI',
+                            credentials: ['PhD in Machine Learning, Stanford', '40+ patents in AI/ML', 'Built production systems at scale'],
+                            color: 'var(--color-accent)',
+                        },
+                        {
+                            initials: 'JR',
+                            name: 'James Richardson',
+                            title: 'Chief Strategy Officer',
+                            background: 'Former Partner, McKinsey Digital',
+                            credentials: ['15+ years consulting leadership', 'Healthcare & Financial Services focus', 'Board advisor to Fortune 100'],
+                            color: 'var(--color-success)',
+                        },
+                    ].map((exec) => (
+                        <Card key={exec.name} className="p-6">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div
+                                    className="w-16 h-16 rounded-full flex items-center justify-center text-lg font-bold"
+                                    style={{ backgroundColor: `${exec.color}20`, color: exec.color }}
+                                >
+                                    {exec.initials}
                                 </div>
-                                <h3 className="text-[var(--color-foreground)] font-medium">{specialty}</h3>
-                                <p className="text-sm text-[var(--color-subtle)] mt-1">Expert Team</p>
-                            </Card>
-                        </StaggerItem>
+                                <div>
+                                    <h3 className="text-white font-semibold text-lg">{exec.name}</h3>
+                                    <p className="text-[var(--color-muted)] text-sm">{exec.title}</p>
+                                </div>
+                            </div>
+                            <p className="text-white text-sm font-medium mb-4">{exec.background}</p>
+                            <ul className="space-y-2">
+                                {exec.credentials.map((cred, i) => (
+                                    <li key={i} className="text-[var(--color-subtle)] text-xs flex items-center gap-2">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-border)]" />
+                                        {cred}
+                                    </li>
+                                ))}
+                            </ul>
+                        </Card>
                     ))}
-                </StaggerContainer>
+                </div>
 
+                {/* Advisory Board */}
+                <ScrollReveal>
+                    <div className="mb-16">
+                        <div className="text-center mb-10">
+                            <span className="badge mb-4">Advisory Board</span>
+                            <h3 className="text-2xl font-serif text-[var(--color-foreground)]">
+                                Guided by Industry Pioneers
+                            </h3>
+                        </div>
+                        <div className="grid md:grid-cols-4 gap-6">
+                            {[
+                                { initials: 'DR', name: 'Dr. David Rollins', role: 'Former CIO, UnitedHealth Group' },
+                                { initials: 'SC', name: 'Sarah Chen', role: 'Former Chief Data Officer, JPMorgan' },
+                                { initials: 'MP', name: 'Prof. Michael Park', role: 'AI Ethics Chair, MIT' },
+                                { initials: 'LT', name: 'Lisa Thornton', role: 'Former SVP Operations, Aetna' },
+                            ].map((advisor) => (
+                                <Card key={advisor.name} className="p-5 text-center">
+                                    <div className="w-12 h-12 rounded-full bg-[var(--color-card-elevated)] border border-[var(--color-border)] flex items-center justify-center mx-auto mb-3">
+                                        <span className="text-sm font-bold text-[var(--color-muted)]">{advisor.initials}</span>
+                                    </div>
+                                    <h4 className="text-white font-medium text-sm">{advisor.name}</h4>
+                                    <p className="text-[var(--color-subtle)] text-xs mt-1">{advisor.role}</p>
+                                </Card>
+                            ))}
+                        </div>
+                    </div>
+                </ScrollReveal>
+
+                {/* Partnership Ecosystem */}
                 <ScrollReveal>
                     <Card className="p-8 lg:p-12 text-center">
-                        <h3 className="text-2xl font-semibold text-white mb-4">Our Team Background</h3>
-                        <p className="text-lg text-[var(--color-muted)] max-w-3xl mx-auto">
-                            Our team includes former executives and senior engineers from leading technology
-                            companies, top-tier consulting firms, and academic institutions. We combine
-                            strategic thinking with hands-on technical execution.
+                        <h3 className="text-2xl font-semibold text-white mb-4">Partnership Ecosystem</h3>
+                        <p className="text-lg text-[var(--color-muted)] max-w-3xl mx-auto mb-8">
+                            Our strategic partnerships enable us to deliver enterprise-grade solutions across every layer of the AI stack.
                         </p>
+                        <div className="grid md:grid-cols-3 gap-6">
+                            <div className="p-6 bg-[var(--color-background)]/50 rounded-xl">
+                                <h4 className="text-white font-medium mb-2">Cloud Infrastructure</h4>
+                                <p className="text-[var(--color-subtle)] text-sm">AWS • Azure • Google Cloud</p>
+                            </div>
+                            <div className="p-6 bg-[var(--color-background)]/50 rounded-xl">
+                                <h4 className="text-white font-medium mb-2">AI/ML Platforms</h4>
+                                <p className="text-[var(--color-subtle)] text-sm">NVIDIA • Databricks • Snowflake</p>
+                            </div>
+                            <div className="p-6 bg-[var(--color-background)]/50 rounded-xl">
+                                <h4 className="text-white font-medium mb-2">System Integrators</h4>
+                                <p className="text-[var(--color-subtle)] text-sm">Select Delivery Partners</p>
+                            </div>
+                        </div>
                     </Card>
                 </ScrollReveal>
             </Section>

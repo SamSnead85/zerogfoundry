@@ -12,6 +12,7 @@ import {
     StaggerItem,
     AnimatedCounter,
     ExecutiveCTA,
+    RecognitionSection,
 } from '../components'
 
 export default function Home() {
@@ -194,6 +195,76 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* STRATEGIC PARTNERS & TECHNOLOGY ALLIANCES */}
+            <section className="py-20 border-b border-[var(--color-border)]">
+                <div className="container">
+                    <div className="text-center mb-12">
+                        <p className="text-[0.7rem] tracking-[0.3em] uppercase text-[var(--color-subtle)] mb-8 font-medium">
+                            Strategic Technology Partners
+                        </p>
+                        <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-8">
+                            {[
+                                { name: 'NVIDIA', letter: 'N' },
+                                { name: 'AWS', letter: 'A' },
+                                { name: 'Microsoft Azure', letter: 'M' },
+                                { name: 'Google Cloud', letter: 'G' },
+                                { name: 'Snowflake', letter: 'S' },
+                            ].map((partner) => (
+                                <div
+                                    key={partner.name}
+                                    className="group flex items-center gap-3 text-[var(--color-muted)] hover:text-white transition-colors duration-300"
+                                >
+                                    <div className="w-10 h-10 rounded-lg bg-[var(--color-card)] border border-[var(--color-border)] flex items-center justify-center group-hover:border-[var(--color-gold)]/30 transition-colors">
+                                        <span className="text-sm font-bold text-[var(--color-subtle)] group-hover:text-[var(--color-gold)] transition-colors">
+                                            {partner.letter}
+                                        </span>
+                                    </div>
+                                    <span className="text-sm font-medium tracking-wide">{partner.name}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Backed By / Advisory Signals */}
+                    <div className="mt-16 pt-12 border-t border-[var(--color-border)]">
+                        <div className="text-center">
+                            <p className="text-[0.7rem] tracking-[0.3em] uppercase text-[var(--color-subtle)] mb-8 font-medium">
+                                Backed By Industry Leaders
+                            </p>
+                            <div className="flex flex-wrap items-center justify-center gap-8">
+                                <div className="flex items-center gap-3 px-6 py-3 rounded-xl bg-[var(--color-card)] border border-[var(--color-border)]">
+                                    <div className="w-8 h-8 rounded-full bg-[var(--color-gold)]/10 flex items-center justify-center">
+                                        <span className="text-xs font-bold text-[var(--color-gold)]">VC</span>
+                                    </div>
+                                    <div className="text-left">
+                                        <p className="text-white text-sm font-medium">Tier-1 Venture Partners</p>
+                                        <p className="text-[var(--color-subtle)] text-xs">Strategic Investment</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 px-6 py-3 rounded-xl bg-[var(--color-card)] border border-[var(--color-border)]">
+                                    <div className="w-8 h-8 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center">
+                                        <span className="text-xs font-bold text-[var(--color-accent)]">F50</span>
+                                    </div>
+                                    <div className="text-left">
+                                        <p className="text-white text-sm font-medium">Fortune 50 Advisory</p>
+                                        <p className="text-[var(--color-subtle)] text-xs">Enterprise Partnerships</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 px-6 py-3 rounded-xl bg-[var(--color-card)] border border-[var(--color-border)]">
+                                    <div className="w-8 h-8 rounded-full bg-[var(--color-success)]/10 flex items-center justify-center">
+                                        <span className="text-xs font-bold text-[var(--color-success)]">AI</span>
+                                    </div>
+                                    <div className="text-left">
+                                        <p className="text-white text-sm font-medium">AI Research Labs</p>
+                                        <p className="text-[var(--color-subtle)] text-xs">Technical Collaboration</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* MANIFESTO: The AI Industry Has a Trust Problem */}
             <Section background="alt" id="manifesto">
                 <ScrollReveal>
@@ -311,15 +382,48 @@ export default function Home() {
                 </ScrollReveal>
             </Section>
 
-            {/* PROOF: Featured Case Study */}
+            {/* INDUSTRY RECOGNITION & CERTIFICATIONS */}
+            <RecognitionSection />
+
+            {/* PROOF: Featured Case Studies */}
             <Section background="alt" id="proof">
                 <ScrollReveal>
-                    <div className="max-w-5xl mx-auto">
-                        <div className="text-center mb-12">
-                            <span className="badge mb-4">Featured Case Study</span>
-                            <h2 className="text-3xl md:text-4xl font-serif text-[var(--color-foreground)]">
+                    <div className="text-center mb-16">
+                        <p className="text-[0.7rem] tracking-[0.3em] uppercase text-[var(--color-champagne)]/70 mb-4 font-light">
+                            Enterprise Case Studies
+                        </p>
+                        <h2 className="font-serif text-[clamp(2rem,5vw,3rem)] font-normal text-[var(--color-foreground)]">
+                            Proven Enterprise Impact
+                        </h2>
+                    </div>
+                </ScrollReveal>
+
+                {/* Case Study 1: Healthcare/Insurance */}
+                <ScrollReveal>
+                    <div className="max-w-5xl mx-auto mb-20">
+                        <div className="text-center mb-8">
+                            <span className="badge mb-4">Healthcare • Claims Automation</span>
+                            <h3 className="text-2xl md:text-3xl font-serif text-[var(--color-foreground)]">
                                 Transforming Claims Processing for a Top-5 Insurer
-                            </h2>
+                            </h3>
+                        </div>
+
+                        {/* Engagement Scope Bar */}
+                        <div className="flex flex-wrap items-center justify-center gap-6 mb-10 p-4 bg-[var(--color-card)] rounded-xl border border-[var(--color-border)]">
+                            <div className="flex items-center gap-2">
+                                <Clock className="w-4 h-4 text-[var(--color-gold)]" />
+                                <span className="text-sm text-white font-medium">18-Month Engagement</span>
+                            </div>
+                            <div className="w-px h-4 bg-[var(--color-border)]" />
+                            <div className="flex items-center gap-2">
+                                <Users className="w-4 h-4 text-[var(--color-accent)]" />
+                                <span className="text-sm text-white font-medium">12-Person Dedicated Team</span>
+                            </div>
+                            <div className="w-px h-4 bg-[var(--color-border)]" />
+                            <div className="flex items-center gap-2">
+                                <Cpu className="w-4 h-4 text-[var(--color-success)]" />
+                                <span className="text-sm text-[var(--color-muted)]">NVIDIA DGX • Azure ML • Custom RLHF</span>
+                            </div>
                         </div>
 
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -361,6 +465,77 @@ export default function Home() {
                                     </div>
                                 </div>
                             </Card>
+                        </div>
+                    </div>
+                </ScrollReveal>
+
+                {/* Case Study 2: Financial Services */}
+                <ScrollReveal>
+                    <div className="max-w-5xl mx-auto">
+                        <div className="text-center mb-8">
+                            <span className="badge mb-4">Financial Services • Document Intelligence</span>
+                            <h3 className="text-2xl md:text-3xl font-serif text-[var(--color-foreground)]">
+                                Automating Regulatory Compliance for a Global Bank
+                            </h3>
+                        </div>
+
+                        {/* Engagement Scope Bar */}
+                        <div className="flex flex-wrap items-center justify-center gap-6 mb-10 p-4 bg-[var(--color-card)] rounded-xl border border-[var(--color-border)]">
+                            <div className="flex items-center gap-2">
+                                <Clock className="w-4 h-4 text-[var(--color-gold)]" />
+                                <span className="text-sm text-white font-medium">14-Month Engagement</span>
+                            </div>
+                            <div className="w-px h-4 bg-[var(--color-border)]" />
+                            <div className="flex items-center gap-2">
+                                <Users className="w-4 h-4 text-[var(--color-accent)]" />
+                                <span className="text-sm text-white font-medium">8-Person Specialized Team</span>
+                            </div>
+                            <div className="w-px h-4 bg-[var(--color-border)]" />
+                            <div className="flex items-center gap-2">
+                                <Database className="w-4 h-4 text-[var(--color-success)]" />
+                                <span className="text-sm text-[var(--color-muted)]">GCP Vertex AI • Snowflake • Custom NLP</span>
+                            </div>
+                        </div>
+
+                        <div className="grid lg:grid-cols-2 gap-12 items-center">
+                            <Card className="p-8 bg-gradient-to-br from-[var(--color-card)] to-[var(--color-background-alt)]">
+                                <Building2 className="w-10 h-10 text-[var(--color-success)] mb-6" />
+                                <blockquote className="text-lg text-white italic leading-relaxed mb-6">
+                                    "The compliance review process that used to take our team 6 weeks now takes 4 days.
+                                    Zero G Foundry's approach to document intelligence has fundamentally changed how we
+                                    handle regulatory submissions."
+                                </blockquote>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-full bg-[var(--color-success)]/20 flex items-center justify-center text-[var(--color-success)] font-bold">
+                                        CRO
+                                    </div>
+                                    <div>
+                                        <p className="text-white font-semibold">Chief Risk Officer</p>
+                                        <p className="text-[var(--color-muted)]">Top-20 Global Financial Institution</p>
+                                    </div>
+                                </div>
+                            </Card>
+
+                            <div>
+                                <p className="text-lg text-[var(--color-muted)] leading-relaxed mb-6">
+                                    A global financial institution needed to process thousands of regulatory documents
+                                    across multiple jurisdictions. Manual review was creating bottlenecks and compliance
+                                    risks with a 4% error rate in critical filings.
+                                </p>
+                                <ul className="space-y-3 mb-8">
+                                    {[
+                                        '92% reduction in document processing time',
+                                        '99.7% accuracy on regulatory classifications',
+                                        '$5.2M annual compliance cost reduction',
+                                        'Zero critical filing errors post-deployment',
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-center gap-3 text-white">
+                                            <CheckCircle className="w-5 h-5 text-[var(--color-success)] flex-shrink-0" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </ScrollReveal>

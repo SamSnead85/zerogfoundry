@@ -19,3 +19,5 @@ export { default as ExecutiveCTA } from './ExecutiveCTA'
 export { default as GradientText } from './GradientText'
 export { default as ScrollProgress } from './ScrollProgress'
 export { default as AnimatedBackground } from './AnimatedBackground'
+export { default as RecognitionSection } from './RecognitionSection'
+
