@@ -10,6 +10,7 @@ const navLinks = [
     { label: 'Methodology', href: '/methodology' },
     { label: 'Insights', href: '/insights' },
     { label: 'About', href: '/about' },
+    { label: 'Investors', href: '/investors' },
 ]
 
 export default function Navigation() {

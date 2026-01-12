@@ -1,4 +1,5 @@
-import { ArrowRight, Clock, BookOpen, TrendingUp, Lightbulb, Building2, Heart } from 'lucide-react'
+import { useState, useMemo } from 'react'
+import { ArrowRight, Clock, BookOpen, TrendingUp, Lightbulb, Building2, Heart, Search } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 import {
@@ -10,6 +11,17 @@ import {
     StaggerContainer,
     StaggerItem,
 } from '../components'
+
+// Category configuration
+const categories = [
+    { id: 'all', label: 'All Articles' },
+    { id: 'Industry Analysis', label: 'Industry Analysis' },
+    { id: 'Technical Deep Dive', label: 'Technical' },
+    { id: 'Strategy', label: 'Strategy' },
+    { id: 'Healthcare', label: 'Healthcare' },
+    { id: 'Financial Services', label: 'Financial Services' },
+    { id: 'Market Analysis', label: 'Market Analysis' },
+]
 
 // Author profiles with credentials
 const authors = {
@@ -254,8 +266,22 @@ Stop running pilots. Start building production. The technology is ready—the qu
 ]
 
 export default function Insights() {
-    const featuredArticles = articles.filter(a => a.featured)
-    const regularArticles = articles.filter(a => !a.featured)
+    const [searchQuery, setSearchQuery] = useState('')
+    const [selectedCategory, setSelectedCategory] = useState('all')
+
+    // Filter articles based on search and category
+    const filteredArticles = useMemo(() => {
+        return articles.filter(article => {
+            const matchesSearch = searchQuery === '' ||
+                article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                article.summary.toLowerCase().includes(searchQuery.toLowerCase())
+            const matchesCategory = selectedCategory === 'all' || article.category === selectedCategory
+            return matchesSearch && matchesCategory
+        })
+    }, [searchQuery, selectedCategory])
+
+    const featuredArticles = filteredArticles.filter(a => a.featured)
+    const regularArticles = filteredArticles.filter(a => !a.featured)
 
     return (
         <>
@@ -269,12 +295,52 @@ export default function Insights() {
                     >
                         <p className="text-eyebrow mb-6">Insights</p>
                         <h1 className="text-display text-[var(--color-foreground)] mb-8">Thought Leadership & Analysis</h1>
-                        <p className="text-lg text-[var(--color-muted)] leading-relaxed">
+                        <p className="text-lg text-[var(--color-muted)] leading-relaxed mb-8">
                             Deep dives into AI transformation strategy, technical implementation,
                             and market trends from our team of practitioners.
                         </p>
+
+                        {/* Search Bar */}
+                        <div className="relative">
+                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--color-muted)]" />
+                            <input
+                                type="text"
+                                placeholder="Search articles..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="w-full pl-12 pr-4 py-3 bg-[var(--color-card)] border border-[var(--color-border)] rounded-xl text-white placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
+                            />
+                        </div>
                     </motion.div>
                 </div>
+
+                {/* Category Filters */}
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="flex flex-wrap justify-center gap-2 mt-8"
+                >
+                    {categories.map(category => (
+                        <button
+                            key={category.id}
+                            onClick={() => setSelectedCategory(category.id)}
+                            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${selectedCategory === category.id
+                                ? 'bg-[var(--color-accent)] text-white'
+                                : 'bg-[var(--color-card)] text-[var(--color-muted)] hover:text-white hover:bg-[var(--color-card-elevated)]'
+                                }`}
+                        >
+                            {category.label}
+                        </button>
+                    ))}
+                </motion.div>
+
+                {/* Results count */}
+                {(searchQuery || selectedCategory !== 'all') && (
+                    <p className="text-center text-sm text-[var(--color-muted)] mt-4">
+                        Showing {filteredArticles.length} of {articles.length} articles
+                    </p>
+                )}
             </Section>
 
             {/* Featured Articles */}

@@ -4,7 +4,7 @@ import { Linkedin, Twitter, Mail, MapPin } from 'lucide-react'
 const footerLinks = {
     solutions: [
         { label: 'Industries', href: '/industries' },
-        { label: 'Case Studies', href: '/case-studies' },
+        { label: 'Case Studies', href: '/client-success' },
         { label: 'ROI Calculator', href: '/roi-calculator' },
         { label: 'Assessment', href: '/assessment' },
     ],
@@ -13,15 +13,21 @@ const footerLinks = {
         { label: 'Team', href: '/team' },
         { label: 'Careers', href: '/careers' },
         { label: 'Partners', href: '/partners' },
+        { label: 'Investors', href: '/investors' },
+        { label: 'Press', href: '/press' },
+        { label: 'Awards', href: '/awards' },
     ],
     resources: [
+        { label: 'Blog', href: '/blog' },
+        { label: 'Whitepapers', href: '/whitepapers' },
+        { label: 'Webinars', href: '/webinars' },
         { label: 'Methodology', href: '/methodology' },
         { label: 'Research', href: '/research' },
-        { label: 'Insights', href: '/insights' },
         { label: 'FAQ', href: '/faq' },
     ],
     trust: [
         { label: 'Security', href: '/security' },
+        { label: 'Compliance', href: '/compliance' },
         { label: 'Privacy Policy', href: '/legal' },
         { label: 'Terms of Service', href: '/legal' },
     ],
