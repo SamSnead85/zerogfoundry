@@ -77,7 +77,7 @@ export default function Industries() {
     return (
         <>
             {/* Hero */}
-            <section className="relative pt-32 pb-16 overflow-hidden">
+            <section className="relative pt-16 pb-12 overflow-hidden">
                 <div className="container">
                     <ScrollReveal>
                         <div className="max-w-3xl mx-auto text-center">

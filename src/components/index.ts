@@ -100,3 +100,20 @@ export {
     ArticleSeries,
 } from './BlogEnhancements'
 
+// Phase 281-300: Engagement Components
+export { default as DemoScheduler } from './DemoScheduler'
+export { default as ProductTour } from './ProductTour'
+
+// Phase 301-320: Visualization Components
+export { default as ArchitectureDiagram } from './ArchitectureDiagram'
+export { default as LiveMetrics } from './LiveMetrics'
+export { default as TechStackVisualization } from './TechStackVisualization'
+export { default as ValueFlowDiagram } from './ValueFlowDiagram'
+
+// Phase 321-340: Solutions Enhancement Components
+export { default as MainframeTCOCalculator } from './MainframeTCOCalculator'
+export { default as CompetitorComparison } from './CompetitorComparison'
+
+// Phase 341-360: Premium UX Components
+export { default as ThemeSwitcher } from './ThemeSwitcher'
+export { default as CommandPalette, useCommandPalette } from './CommandPalette'

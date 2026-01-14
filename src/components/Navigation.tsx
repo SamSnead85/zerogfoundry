@@ -1,22 +1,132 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const navLinks = [
-    { label: 'Assessment', href: '/assessment' },
-    { label: 'Industries', href: '/industries' },
-    { label: 'Case Studies', href: '/case-studies' },
-    { label: 'Methodology', href: '/methodology' },
-    { label: 'Insights', href: '/insights' },
-    { label: 'About', href: '/about' },
-    { label: 'Investors', href: '/investors' },
+// Navigation configuration
+const navConfig = [
+    {
+        label: 'Solutions',
+        items: [
+            { label: 'Mainframe Modernization', href: '/solutions/mainframe', description: 'Transform legacy systems with AI' },
+            { label: 'AI Contact Center', href: '/solutions/contact-center', description: 'Revolutionary CX platform' },
+            { divider: true },
+            { label: 'For Financial Services', href: '/industries/financial-services' },
+            { label: 'For Healthcare', href: '/industries/healthcare' },
+        ],
+    },
+    {
+        label: 'Platform',
+        items: [
+            { label: 'Overview', href: '/platform', description: 'The unified transformation platform' },
+            { label: 'Agentic Engine', href: '/platform/agentic-engine', description: 'Our AI foundation' },
+            { label: 'Assessment Framework', href: '/assessment' },
+            { label: 'Security', href: '/security' },
+        ],
+    },
+    {
+        label: 'Why Zero Foundry',
+        items: [
+            { label: 'Our Difference', href: '/methodology' },
+            { label: 'Customer Stories', href: '/client-success' },
+            { label: 'Partners', href: '/partners-v2' },
+        ],
+    },
+    {
+        label: 'Resources',
+        items: [
+            { label: 'Blog', href: '/blog' },
+            { label: 'Whitepapers', href: '/whitepapers' },
+            { label: 'Case Studies', href: '/case-studies' },
+        ],
+    },
+    {
+        label: 'Company',
+        items: [
+            { label: 'About Us', href: '/about' },
+            { label: 'Careers', href: '/careers' },
+            { label: 'Contact', href: '/contact' },
+        ],
+    },
 ]
+
+interface NavItem {
+    label?: string
+    href?: string
+    description?: string
+    divider?: boolean
+}
+
+interface NavSection {
+    label: string
+    items: NavItem[]
+}
+
+function DropdownMenu({ section, isOpen, onClose }: { section: NavSection; isOpen: boolean; onClose: () => void }) {
+    const location = useLocation()
+
+    return (
+        <AnimatePresence>
+            {isOpen && (
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    className="absolute top-full left-0 pt-4"
+                    onMouseLeave={onClose}
+                >
+                    <div className="bg-[#0a0a0a]/95 backdrop-blur-2xl rounded-xl border border-white/10 shadow-2xl overflow-hidden min-w-[280px]">
+                        {/* Gold accent line */}
+                        <div className="h-px bg-gradient-to-r from-transparent via-[var(--color-gold)]/50 to-transparent" />
+
+                        <div className="p-2">
+                            {section.items.map((item, idx) => {
+                                if (item.divider) {
+                                    return <div key={idx} className="my-2 h-px bg-white/10" />
+                                }
+
+                                const isActive = location.pathname === item.href
+
+                                return (
+                                    <Link
+                                        key={item.href}
+                                        to={item.href!}
+                                        className={`block px-4 py-3 rounded-lg transition-all duration-200 group ${isActive
+                                                ? 'bg-[var(--color-gold)]/10 text-white'
+                                                : 'text-white/70 hover:bg-white/5 hover:text-white'
+                                            }`}
+                                        onClick={onClose}
+                                    >
+                                        <div className="flex items-center justify-between">
+                                            <div>
+                                                <div className="font-medium text-sm">{item.label}</div>
+                                                {item.description && (
+                                                    <div className="text-xs text-white/40 mt-0.5">
+                                                        {item.description}
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-50 group-hover:translate-x-0 transition-all" />
+                                        </div>
+                                    </Link>
+                                )
+                            })}
+                        </div>
+                    </div>
+                </motion.div>
+            )}
+        </AnimatePresence>
+    )
+}
 
 export default function Navigation() {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileOpen, setIsMobileOpen] = useState(false)
+    const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+    const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>(null)
     const location = useLocation()
+    const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -28,7 +138,22 @@ export default function Navigation() {
 
     useEffect(() => {
         setIsMobileOpen(false)
+        setOpenDropdown(null)
+        setMobileExpandedSection(null)
     }, [location])
+
+    const handleMouseEnter = (label: string) => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current)
+        }
+        setOpenDropdown(label)
+    }
+
+    const handleMouseLeave = () => {
+        timeoutRef.current = setTimeout(() => {
+            setOpenDropdown(null)
+        }, 150)
+    }
 
     return (
         <header
@@ -43,45 +168,55 @@ export default function Navigation() {
             </div>
 
             <nav className="container flex items-center justify-between h-20" aria-label="Main navigation">
-                {/* Logo with premium styling */}
-                <Link to="/" className="flex items-center gap-3 group" aria-label="Zero G Foundry Home">
+                {/* Logo */}
+                <Link to="/" className="flex items-center gap-3 group" aria-label="Zero Foundry Home">
                     <span className="text-xl font-serif text-white transition-all duration-300 group-hover:text-[var(--color-gold)]">
-                        Zero G Foundry
+                        Zero Foundry
                     </span>
                 </Link>
 
-                {/* Desktop Navigation - Premium Links */}
-                <div className="hidden lg:flex items-center gap-12">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.href}
-                            to={link.href}
-                            className={`relative text-sm font-medium transition-colors duration-300 ${location.pathname === link.href
-                                ? 'text-white'
-                                : 'text-white/50 hover:text-white'
-                                }`}
+                {/* Desktop Navigation - Dropdowns */}
+                <div className="hidden lg:flex items-center gap-8">
+                    {navConfig.map((section) => (
+                        <div
+                            key={section.label}
+                            className="relative"
+                            onMouseEnter={() => handleMouseEnter(section.label)}
+                            onMouseLeave={handleMouseLeave}
                         >
-                            {link.label}
-                            {/* Active indicator with glow */}
-                            {location.pathname === link.href && (
-                                <motion.div
-                                    layoutId="navIndicator"
-                                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-gold)] to-[var(--color-aurora-teal)]"
-                                    style={{ boxShadow: '0 0 10px rgba(201, 168, 108, 0.5)' }}
-                                    transition={{ duration: 0.3 }}
-                                />
-                            )}
-                        </Link>
+                            <button
+                                className={`flex items-center gap-1.5 text-sm font-medium transition-colors duration-300 ${openDropdown === section.label
+                                        ? 'text-white'
+                                        : 'text-white/50 hover:text-white'
+                                    }`}
+                            >
+                                {section.label}
+                                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === section.label ? 'rotate-180' : ''
+                                    }`} />
+                            </button>
+
+                            <DropdownMenu
+                                section={section}
+                                isOpen={openDropdown === section.label}
+                                onClose={() => setOpenDropdown(null)}
+                            />
+                        </div>
                     ))}
                 </div>
 
-                {/* Desktop CTA - Premium Button */}
+                {/* Desktop CTAs */}
                 <div className="hidden lg:flex items-center gap-4">
                     <Link
                         to="/contact"
-                        className="inline-flex items-center px-6 py-2.5 bg-[var(--color-foreground)] text-[#050505] font-medium text-sm tracking-wide rounded-lg transition-all duration-500 hover:shadow-[0_0_40px_rgba(201,168,108,0.25)] hover:scale-[1.02]"
+                        className="inline-flex items-center px-4 py-2 text-white/60 hover:text-white font-medium text-sm border border-white/10 hover:border-white/20 rounded-lg transition-all duration-300"
                     >
-                        Get Started
+                        Talk to an Expert
+                    </Link>
+                    <Link
+                        to="/platform-demo"
+                        className="inline-flex items-center px-5 py-2.5 bg-[var(--color-foreground)] text-[#050505] font-medium text-sm tracking-wide rounded-lg transition-all duration-500 hover:shadow-[0_0_40px_rgba(201,168,108,0.25)] hover:scale-[1.02]"
+                    >
+                        Request a Demo
                     </Link>
                 </div>
 
@@ -96,40 +231,68 @@ export default function Navigation() {
                 </button>
             </nav>
 
-            {/* Mobile Navigation - Premium Glass Panel */}
+            {/* Mobile Navigation */}
             <AnimatePresence>
                 {isMobileOpen && (
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="lg:hidden bg-[#050505]/95 backdrop-blur-2xl border-t border-white/5"
+                        className="lg:hidden bg-[#050505]/98 backdrop-blur-2xl border-t border-white/5 overflow-hidden"
                     >
-                        <div className="container py-8 flex flex-col gap-6">
-                            {navLinks.map((link, index) => (
-                                <motion.div
-                                    key={link.href}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: index * 0.1 }}
-                                >
-                                    <Link
-                                        to={link.href}
-                                        className={`block text-lg font-medium py-2 transition-colors ${location.pathname === link.href
-                                            ? 'text-[var(--color-gold)]'
-                                            : 'text-white/60 hover:text-white'
-                                            }`}
+                        <div className="container py-6 max-h-[80vh] overflow-y-auto">
+                            {navConfig.map((section) => (
+                                <div key={section.label} className="mb-4">
+                                    <button
+                                        onClick={() => setMobileExpandedSection(
+                                            mobileExpandedSection === section.label ? null : section.label
+                                        )}
+                                        className="flex items-center justify-between w-full py-3 text-white font-medium"
                                     >
-                                        {link.label}
-                                    </Link>
-                                </motion.div>
+                                        {section.label}
+                                        <ChevronDown className={`w-4 h-4 transition-transform ${mobileExpandedSection === section.label ? 'rotate-180' : ''
+                                            }`} />
+                                    </button>
+
+                                    <AnimatePresence>
+                                        {mobileExpandedSection === section.label && (
+                                            <motion.div
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: 'auto' }}
+                                                exit={{ opacity: 0, height: 0 }}
+                                                className="pl-4 border-l border-white/10"
+                                            >
+                                                {section.items.map((item) => {
+                                                    if (item.divider) return null
+                                                    return (
+                                                        <Link
+                                                            key={item.href}
+                                                            to={item.href!}
+                                                            className="block py-2.5 text-white/60 hover:text-white text-sm"
+                                                        >
+                                                            {item.label}
+                                                        </Link>
+                                                    )
+                                                })}
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
                             ))}
-                            <div className="pt-6 border-t border-white/10">
+
+                            {/* Mobile CTAs */}
+                            <div className="pt-6 mt-4 border-t border-white/10 space-y-3">
                                 <Link
                                     to="/contact"
-                                    className="inline-flex items-center justify-center w-full px-6 py-3 bg-[var(--color-foreground)] text-[#050505] font-medium text-sm tracking-wide rounded-lg transition-all duration-300 hover:shadow-[0_0_40px_rgba(201,168,108,0.25)]"
+                                    className="block text-center py-3 text-white/70 border border-white/20 rounded-lg"
                                 >
-                                    Get Started
+                                    Talk to an Expert
+                                </Link>
+                                <Link
+                                    to="/platform-demo"
+                                    className="block text-center py-3 bg-white text-[#050505] font-medium rounded-lg"
+                                >
+                                    Request a Demo
                                 </Link>
                             </div>
                         </div>

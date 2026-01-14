@@ -112,7 +112,7 @@ export default function Blog() {
     return (
         <>
             {/* Hero Section */}
-            <Section className="pt-32 pb-16">
+            <Section className="pt-16 pb-12">
                 <div className="max-w-3xl mx-auto text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

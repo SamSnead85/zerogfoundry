@@ -50,6 +50,14 @@ import PlatformDemo from './pages/PlatformDemo'
 import Accessibility from './pages/Accessibility'
 import NotFound from './pages/NotFound'
 
+// NEW: Solutions Pages
+import AIContactCenter from './pages/AIContactCenter'
+import MainframeModernization from './pages/MainframeModernization'
+
+// NEW: Platform Pages
+import PlatformOverview from './pages/PlatformOverview'
+import AgenticEngine from './pages/AgenticEngine'
+
 function App() {
   return (
     <BrowserRouter>
@@ -67,7 +75,7 @@ function App() {
 
         <Navigation />
 
-        <main id="main-content" className="flex-1 pt-20">
+        <main id="main-content" className="flex-1 pt-24">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/methodology" element={<Approach />} />
@@ -112,10 +120,20 @@ function App() {
             <Route path="/platform-demo" element={<PlatformDemo />} />
             <Route path="/accessibility" element={<Accessibility />} />
 
+            {/* NEW: Solutions Routes */}
+            <Route path="/solutions/mainframe" element={<MainframeModernization />} />
+            <Route path="/solutions/contact-center" element={<AIContactCenter />} />
+
+            {/* NEW: Platform Routes */}
+            <Route path="/platform" element={<PlatformOverview />} />
+            <Route path="/platform/agentic-engine" element={<AgenticEngine />} />
+
+            {/* Industry Sub-routes (for navigation dropdown) */}
+            <Route path="/industries/financial-services" element={<Industries />} />
+            <Route path="/industries/healthcare" element={<Industries />} />
+
             {/* Redirects for old routes */}
             <Route path="/our-approach" element={<Navigate to="/methodology" replace />} />
-            <Route path="/solutions" element={<Navigate to="/industries" replace />} />
-            <Route path="/solutions/*" element={<Navigate to="/industries" replace />} />
             <Route path="/privacy" element={<Navigate to="/legal" replace />} />
             <Route path="/terms" element={<Navigate to="/legal" replace />} />
 

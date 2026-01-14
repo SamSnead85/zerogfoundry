@@ -334,7 +334,7 @@ export default function Assessment() {
     if (stage === 'intro') {
         return (
             <>
-                <Section className="pt-32 pb-16">
+                <Section className="pt-16 pb-12">
                     <div className="max-w-5xl mx-auto">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <motion.div
@@ -453,7 +453,7 @@ export default function Assessment() {
         const currentPillar = pillars.find(p => p.id === question.pillar)!
 
         return (
-            <Section className="pt-32 pb-16 min-h-screen">
+            <Section className="pt-16 pb-12 min-h-screen">
                 <div className="max-w-3xl mx-auto">
                     {/* Progress Bar */}
                     <div className="mb-12">
@@ -556,7 +556,7 @@ export default function Assessment() {
     // Results Stage
     return (
         <>
-            <Section className="pt-32 pb-16">
+            <Section className="pt-16 pb-12">
                 <div className="max-w-5xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

@@ -201,7 +201,7 @@ export default function AssessmentV2() {
 
     if (!started) {
         return (
-            <Section className="pt-32 pb-20">
+            <Section className="pt-16 pb-14">
                 <ScrollReveal>
                     <Card className="max-w-3xl mx-auto p-12 text-center">
                         <FileQuestion className="w-16 h-16 text-[var(--color-gold)] mx-auto mb-6" />
@@ -238,7 +238,7 @@ export default function AssessmentV2() {
         const maturity = getMaturityLevel(overallScore)
 
         return (
-            <Section className="pt-32 pb-20">
+            <Section className="pt-16 pb-14">
                 <ScrollReveal>
                     <div className="max-w-4xl mx-auto">
                         <Card className="p-12 text-center mb-8">
@@ -297,7 +297,7 @@ export default function AssessmentV2() {
     }
 
     return (
-        <Section className="pt-32 pb-20">
+        <Section className="pt-16 pb-14">
             <div className="max-w-3xl mx-auto">
                 {/* Progress */}
                 <div className="mb-8">

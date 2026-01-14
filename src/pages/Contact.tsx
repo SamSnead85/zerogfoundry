@@ -42,7 +42,7 @@ export default function Contact() {
 
     if (isSubmitted) {
         return (
-            <Section className="pt-32 pb-16 min-h-[80vh] flex items-center">
+            <Section className="pt-16 pb-12 min-h-[80vh] flex items-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -67,7 +67,7 @@ export default function Contact() {
     return (
         <>
             {/* Hero Section */}
-            <Section className="pt-32 pb-16">
+            <Section className="pt-16 pb-12">
                 <div className="max-w-3xl mx-auto text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

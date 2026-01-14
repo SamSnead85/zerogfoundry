@@ -308,12 +308,12 @@ p {
 
 /* ===== Section Spacing ===== */
 .section {
-  padding: var(--spacing-section) 0;
+  padding: 5rem 0;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding: var(--spacing-section-lg) 0;
+    padding: 7rem 0;
   }
 }
 
