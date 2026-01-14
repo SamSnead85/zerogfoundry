@@ -369,6 +369,10 @@ p {
   }
 }
 
+.animate-shimmer-slow {
+  animation: shimmer-slow 4s ease-in-out infinite;
+}
+
 /* ===== Floating Animation ===== */
 @keyframes float {
 
