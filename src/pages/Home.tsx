@@ -12,6 +12,7 @@ import {
     StaggerItem,
     ExecutiveCTA,
     RecognitionSection,
+    LiveMetrics,
 } from '../components'
 
 export default function Home() {
@@ -208,6 +209,21 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            {/* LIVE PERFORMANCE METRICS */}
+            <Section id="metrics">
+                <ScrollReveal>
+                    <div className="text-center mb-12">
+                        <p className="text-[0.8rem] tracking-[0.25em] uppercase text-[var(--color-champagne)]/70 mb-4 font-light">
+                            Real-Time Results
+                        </p>
+                        <h2 className="font-serif text-[clamp(1.75rem,4vw,2.5rem)] font-normal text-white">
+                            Live Platform Performance
+                        </h2>
+                    </div>
+                    <LiveMetrics />
+                </ScrollReveal>
+            </Section>
 
             {/* THE PROBLEM: Twin Drags on Innovation */}
             <Section background="alt" id="problem">
