@@ -5,6 +5,7 @@ import { Navigation, Footer, ScrollProgress, AnimatedBackground, FloatingCTA, So
 import ChatWidget from './components/ChatWidget'
 import ExitIntent from './components/ExitIntent'
 import BackToTop from './components/BackToTop'
+import CommandPalette, { useCommandPalette } from './components/CommandPalette'
 
 // Pages
 import Home from './pages/Home'
@@ -59,6 +60,8 @@ import PlatformOverview from './pages/PlatformOverview'
 import AgenticEngine from './pages/AgenticEngine'
 
 function App() {
+  const { isOpen, setIsOpen } = useCommandPalette()
+
   return (
     <BrowserRouter>
       <div className="min-h-screen flex flex-col">
@@ -74,6 +77,9 @@ function App() {
         </a>
 
         <Navigation />
+
+        {/* Global Command Palette (⌘K) */}
+        <CommandPalette isOpen={isOpen} onClose={() => setIsOpen(false)} />
 
         <main id="main-content" className="flex-1 pt-24">
           <Routes>

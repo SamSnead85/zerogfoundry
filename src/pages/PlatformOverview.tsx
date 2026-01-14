@@ -9,6 +9,7 @@ import {
     StaggerContainer,
     StaggerItem,
     ExecutiveCTA,
+    ArchitectureDiagram,
 } from '../components'
 
 export default function PlatformOverview() {
@@ -127,6 +128,15 @@ export default function PlatformOverview() {
                         </Card>
                     </ScrollReveal>
                 </div>
+
+                {/* Interactive Architecture Diagram */}
+                <ScrollReveal className="mt-16">
+                    <div className="text-center mb-8">
+                        <h3 className="text-xl font-semibold text-white mb-2">Interactive Platform Architecture</h3>
+                        <p className="text-sm text-[var(--color-muted)]">Hover over nodes to explore the architecture</p>
+                    </div>
+                    <ArchitectureDiagram variant="platform" />
+                </ScrollReveal>
             </Section>
 
             {/* Two Solutions */}

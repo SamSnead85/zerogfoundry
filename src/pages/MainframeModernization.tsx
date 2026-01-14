@@ -10,6 +10,8 @@ import {
     StaggerContainer,
     StaggerItem,
     ExecutiveCTA,
+    MainframeTCOCalculator,
+    ArchitectureDiagram,
 } from '../components'
 
 export default function MainframeModernization() {
@@ -389,6 +391,29 @@ export default function MainframeModernization() {
                             </Button>
                         </div>
                     </div>
+                </ScrollReveal>
+            </Section>
+
+            {/* Interactive TCO Calculator */}
+            <Section id="tco-calculator">
+                <ScrollReveal>
+                    <SectionHeader
+                        badge="ROI Calculator"
+                        title="Calculate Your Savings"
+                        subtitle="See how much you could save by modernizing your mainframe infrastructure."
+                    />
+                </ScrollReveal>
+                <MainframeTCOCalculator />
+            </Section>
+
+            {/* Interactive Architecture */}
+            <Section background="alt" id="architecture-diagram">
+                <ScrollReveal>
+                    <div className="text-center mb-8">
+                        <h3 className="text-xl font-semibold text-white mb-2">Mainframe Migration Architecture</h3>
+                        <p className="text-sm text-[var(--color-muted)]">Hover to explore the transformation flow</p>
+                    </div>
+                    <ArchitectureDiagram variant="mainframe" />
                 </ScrollReveal>
             </Section>
 
