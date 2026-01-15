@@ -11,6 +11,7 @@ import {
     StaggerContainer,
     StaggerItem,
     ExecutiveCTA,
+    CompetitorComparison,
 } from '../components'
 
 export default function AIContactCenter() {
@@ -543,6 +544,20 @@ export default function AIContactCenter() {
                         </Card>
                     </ScrollReveal>
                 </div>
+            </Section>
+
+            {/* Competitor Comparison */}
+            <Section id="compare">
+                <ScrollReveal>
+                    <SectionHeader
+                        badge="Competitive Analysis"
+                        title="Why Zero Foundry?"
+                        subtitle="See how our AI-native platform compares to legacy and hyperscaler alternatives."
+                    />
+                </ScrollReveal>
+                <ScrollReveal delay={0.2}>
+                    <CompetitorComparison variant="contact-center" className="max-w-5xl mx-auto" />
+                </ScrollReveal>
             </Section>
 
             {/* Executive CTA */}

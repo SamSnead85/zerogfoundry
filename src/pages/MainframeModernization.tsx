@@ -12,6 +12,7 @@ import {
     ExecutiveCTA,
     MainframeTCOCalculator,
     ArchitectureDiagram,
+    CompetitorComparison,
 } from '../components'
 
 export default function MainframeModernization() {
@@ -414,6 +415,20 @@ export default function MainframeModernization() {
                         <p className="text-sm text-[var(--color-muted)]">Hover to explore the transformation flow</p>
                     </div>
                     <ArchitectureDiagram variant="mainframe" />
+                </ScrollReveal>
+            </Section>
+
+            {/* Competitor Comparison */}
+            <Section id="compare">
+                <ScrollReveal>
+                    <SectionHeader
+                        badge="Competitive Analysis"
+                        title="How We Compare"
+                        subtitle="See why enterprises choose Zero Foundry over legacy vendors and hyperscalers."
+                    />
+                </ScrollReveal>
+                <ScrollReveal delay={0.2}>
+                    <CompetitorComparison variant="mainframe" className="max-w-5xl mx-auto" />
                 </ScrollReveal>
             </Section>
 
