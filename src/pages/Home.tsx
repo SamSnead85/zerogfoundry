@@ -97,21 +97,11 @@ export default function Home() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            {/* Ultra-Premium Display Headline */}
-                            <h1 className="font-serif text-[clamp(3rem,9vw,6rem)] font-normal leading-[0.95] tracking-[-0.025em] text-[var(--color-foreground)] mb-8">
-                                From Core to
+                            {/* Ultra-Premium Display Headline with Typography Revolution */}
+                            <h1 className="text-hero text-[var(--color-foreground)] mb-8">
+                                <span className="text-reveal-up inline-block">From Core to</span>
                                 <br />
-                                <span
-                                    className="italic font-light"
-                                    style={{
-                                        background: 'linear-gradient(135deg, #fafafa 0%, rgba(201, 168, 108, 0.9) 50%, #fafafa 100%)',
-                                        backgroundSize: '200% auto',
-                                        WebkitBackgroundClip: 'text',
-                                        WebkitTextFillColor: 'transparent',
-                                        backgroundClip: 'text',
-                                        animation: 'shimmer 4s ease-in-out infinite',
-                                    }}
-                                >
+                                <span className="text-gradient-shimmer italic font-light text-reveal-up inline-block delay-2">
                                     Customer
                                 </span>
                             </h1>
@@ -119,8 +109,8 @@ export default function Home() {
                             {/* Enhanced Subtitle */}
                             <p className="text-lg md:text-xl text-[var(--color-muted)] mb-14 max-w-2xl leading-[1.8] font-light tracking-wide">
                                 Zero Foundry is the independent AI transformation platform. We empower you to
-                                <span className="text-[var(--color-foreground)]"> modernize legacy mainframes</span> and
-                                <span className="text-[var(--color-foreground)]"> revolutionize your contact center</span>—all with
+                                <span className="text-[var(--color-foreground)] text-glow-hover"> modernize legacy mainframes</span> and
+                                <span className="text-[var(--color-foreground)] text-glow-hover"> revolutionize your contact center</span>—all with
                                 the power of agentic AI, free from hyperscaler lock-in.
                             </p>
 
@@ -142,7 +132,7 @@ export default function Home() {
                             </div>
                         </motion.div>
 
-                        {/* Premium Metrics Bar */}
+                        {/* Premium Metrics Bar with Typography Enhancement */}
                         <motion.div
                             className="grid grid-cols-3 gap-10 md:gap-24 pt-14 border-t border-[var(--color-border)]"
                             initial={{ opacity: 0, y: 30 }}
@@ -150,26 +140,26 @@ export default function Home() {
                             transition={{ delay: 1, duration: 1.2 }}
                         >
                             <div className="group">
-                                <div className="text-[2.25rem] md:text-[3rem] font-serif font-normal text-[var(--color-foreground)] tracking-tight transition-all duration-500 group-hover:text-[var(--color-gold)]">
+                                <div className="text-display text-[2.25rem] md:text-[3rem] text-[var(--color-foreground)] tracking-tight transition-all duration-500 group-hover:text-[var(--color-gold)] text-glow-gold-hover">
                                     $12M<span className="text-[var(--color-muted)]">+</span>
                                 </div>
-                                <div className="text-[0.65rem] text-[var(--color-subtle)] uppercase tracking-[0.25em] mt-3 font-medium">
+                                <div className="text-eyebrow mt-3">
                                     Average Savings
                                 </div>
                             </div>
                             <div className="group">
-                                <div className="text-[2.25rem] md:text-[3rem] font-serif font-normal text-[var(--color-foreground)] tracking-tight transition-all duration-500 group-hover:text-[var(--color-aurora-teal)]">
+                                <div className="text-display text-[2.25rem] md:text-[3rem] text-[var(--color-foreground)] tracking-tight transition-all duration-500 group-hover:text-[var(--color-aurora-teal)] text-glow-aurora-hover">
                                     95<span className="text-[var(--color-muted)]">%</span>
                                 </div>
-                                <div className="text-[0.65rem] text-[var(--color-subtle)] uppercase tracking-[0.25em] mt-3 font-medium">
+                                <div className="text-eyebrow mt-3">
                                     Production Accuracy
                                 </div>
                             </div>
                             <div className="group">
-                                <div className="text-[2.25rem] md:text-[3rem] font-serif font-normal text-[var(--color-foreground)] tracking-tight transition-all duration-500 group-hover:text-[var(--color-holographic-violet)]">
+                                <div className="text-display text-[2.25rem] md:text-[3rem] text-[var(--color-foreground)] tracking-tight transition-all duration-500 group-hover:text-[var(--color-holographic-violet)]">
                                     5<span className="text-[var(--color-muted)]">x</span>
                                 </div>
-                                <div className="text-[0.65rem] text-[var(--color-subtle)] uppercase tracking-[0.25em] mt-3 font-medium">
+                                <div className="text-eyebrow mt-3">
                                     ROI Multiple
                                 </div>
                             </div>
