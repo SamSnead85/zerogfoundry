@@ -110,15 +110,15 @@ function MegaDropdown({ section, isOpen, onClose }: { section: NavSection; isOpe
                                             key={item.href}
                                             to={item.href!}
                                             className={`group flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all duration-300 ${isActive
-                                                    ? 'bg-gradient-to-r from-[var(--color-gold)]/15 to-transparent text-white'
-                                                    : 'text-white/70 hover:bg-white/[0.04] hover:text-white'
+                                                ? 'bg-gradient-to-r from-[var(--color-gold)]/15 to-transparent text-white'
+                                                : 'text-white/70 hover:bg-white/[0.04] hover:text-white'
                                                 }`}
                                             onClick={onClose}
                                         >
                                             {/* Icon with glow */}
                                             <div className={`relative flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-300 ${isActive
-                                                    ? 'bg-[var(--color-gold)]/20'
-                                                    : 'bg-white/[0.04] group-hover:bg-white/[0.08]'
+                                                ? 'bg-[var(--color-gold)]/20'
+                                                : 'bg-white/[0.04] group-hover:bg-white/[0.08]'
                                                 }`}>
                                                 <span className="text-lg">{item.icon}</span>
                                                 {isActive && (
@@ -149,19 +149,7 @@ function MegaDropdown({ section, isOpen, onClose }: { section: NavSection; isOpe
     )
 }
 
-// Premium notification badge
-function LiveBadge() {
-    return (
-        <motion.div
-            className="absolute -top-1 -right-3 flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-gradient-to-r from-[var(--color-aurora-teal)] to-[var(--color-success)] text-[9px] font-bold text-black uppercase tracking-wider"
-            animate={{ scale: [1, 1.05, 1], opacity: [0.9, 1, 0.9] }}
-            transition={{ duration: 2, repeat: Infinity }}
-        >
-            <span className="w-1.5 h-1.5 rounded-full bg-black/40 animate-pulse" />
-            Live
-        </motion.div>
-    )
-}
+
 
 export default function Navigation() {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -200,250 +188,229 @@ export default function Navigation() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${isScrolled
-                    ? 'py-2'
-                    : 'py-3'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+                ? 'py-3'
+                : 'py-4'
                 }`}
         >
-            {/* Premium frosted glass background */}
-            <motion.div
-                className="absolute inset-0"
-                initial={false}
-                animate={{
-                    backgroundColor: isScrolled ? 'rgba(5, 5, 5, 0.75)' : 'rgba(5, 5, 5, 0)',
-                    backdropFilter: isScrolled ? 'blur(24px) saturate(180%)' : 'blur(0px)',
-                }}
-                transition={{ duration: 0.5 }}
-            />
+            <div className="container">
+                {/* Modern floating pill navigation */}
+                <nav
+                    className={`relative flex items-center justify-between h-14 px-6 rounded-full transition-all duration-500 ${isScrolled
+                        ? 'bg-[#0a0a0a]/80 backdrop-blur-2xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
+                        : 'bg-transparent'
+                        }`}
+                    aria-label="Main navigation"
+                >
+                    {/* Premium Logo */}
+                    <Link to="/" className="flex items-center gap-3 group relative" aria-label="Zero Foundry Home">
+                        {/* Logo glow effect */}
+                        <div className="absolute -inset-4 bg-gradient-to-r from-[var(--color-gold)]/0 via-[var(--color-gold)]/10 to-[var(--color-gold)]/0 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-            {/* Animated gradient border - bottom */}
-            <motion.div
-                className="absolute bottom-0 left-0 right-0 h-px"
-                initial={false}
-                animate={{ opacity: isScrolled ? 1 : 0 }}
-                transition={{ duration: 0.4 }}
-            >
-                <div className="h-full bg-gradient-to-r from-transparent via-[var(--color-gold)]/40 to-transparent" />
-            </motion.div>
+                        {/* Logo mark */}
+                        <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center group-hover:border-[var(--color-gold)]/30 transition-all duration-500 overflow-hidden">
+                            <span className="text-lg font-bold bg-gradient-to-br from-white via-[var(--color-gold)] to-white bg-clip-text text-transparent">Z</span>
+                            {/* Shine effect */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                        </div>
 
-            {/* Subtle top highlight when scrolled */}
-            <motion.div
-                className="absolute top-0 left-0 right-0 h-px"
-                initial={false}
-                animate={{ opacity: isScrolled ? 0.5 : 0 }}
-            >
-                <div className="h-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-            </motion.div>
+                        {/* Text logo */}
+                        <div className="relative">
+                            <span className="text-xl font-serif font-medium tracking-tight text-white group-hover:text-[var(--color-gold)] transition-colors duration-300">
+                                Zero Foundry
+                            </span>
+                            {/* Tagline - visible on large screens */}
+                            <span className="hidden xl:block text-[10px] text-white/40 uppercase tracking-[0.2em] font-medium mt-0.5">
+                                AI Transformation
+                            </span>
+                        </div>
+                    </Link>
 
-            <nav className="container relative flex items-center justify-between h-16" aria-label="Main navigation">
-                {/* Premium Logo */}
-                <Link to="/" className="flex items-center gap-3 group relative" aria-label="Zero Foundry Home">
-                    {/* Logo glow effect */}
-                    <div className="absolute -inset-4 bg-gradient-to-r from-[var(--color-gold)]/0 via-[var(--color-gold)]/10 to-[var(--color-gold)]/0 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                    {/* Logo mark */}
-                    <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center group-hover:border-[var(--color-gold)]/30 transition-all duration-500 overflow-hidden">
-                        <span className="text-lg font-bold bg-gradient-to-br from-white via-[var(--color-gold)] to-white bg-clip-text text-transparent">Z</span>
-                        {/* Shine effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                    </div>
-
-                    {/* Text logo */}
-                    <div className="relative">
-                        <span className="text-xl font-serif font-medium tracking-tight text-white group-hover:text-[var(--color-gold)] transition-colors duration-300">
-                            Zero Foundry
-                        </span>
-                        {/* Tagline - visible on large screens */}
-                        <span className="hidden xl:block text-[10px] text-white/40 uppercase tracking-[0.2em] font-medium mt-0.5">
-                            AI Transformation
-                        </span>
-                    </div>
-                </Link>
-
-                {/* Desktop Navigation - Premium */}
-                <div className="hidden lg:flex items-center gap-1">
-                    {navConfig.map((section) => (
-                        <div
-                            key={section.label}
-                            className="relative"
-                            onMouseEnter={() => handleMouseEnter(section.label)}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            <button
-                                className={`relative flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${openDropdown === section.label
+                    {/* Desktop Navigation - Premium */}
+                    <div className="hidden lg:flex items-center gap-1">
+                        {navConfig.map((section) => (
+                            <div
+                                key={section.label}
+                                className="relative"
+                                onMouseEnter={() => handleMouseEnter(section.label)}
+                                onMouseLeave={handleMouseLeave}
+                            >
+                                <button
+                                    className={`relative flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${openDropdown === section.label
                                         ? 'text-white bg-white/[0.06]'
                                         : 'text-white/60 hover:text-white hover:bg-white/[0.03]'
-                                    }`}
-                            >
-                                {section.label}
-                                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${openDropdown === section.label ? 'rotate-180' : ''
-                                    }`} />
+                                        }`}
+                                >
+                                    {section.label}
+                                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${openDropdown === section.label ? 'rotate-180' : ''
+                                        }`} />
 
-                                {/* Live indicator for Solutions */}
-                                {section.label === 'Platform' && <LiveBadge />}
-                            </button>
 
-                            <MegaDropdown
-                                section={section}
-                                isOpen={openDropdown === section.label}
-                                onClose={() => setOpenDropdown(null)}
-                            />
-                        </div>
-                    ))}
-                </div>
+                                </button>
 
-                {/* Desktop CTAs - Premium */}
-                <div className="hidden lg:flex items-center gap-3">
-                    {/* Secondary CTA */}
-                    <Link
-                        to="/contact"
-                        className="relative group inline-flex items-center gap-2 px-5 py-2.5 text-white/70 hover:text-white font-medium text-sm rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden"
+                                <MegaDropdown
+                                    section={section}
+                                    isOpen={openDropdown === section.label}
+                                    onClose={() => setOpenDropdown(null)}
+                                />
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Desktop CTAs - Premium */}
+                    <div className="hidden lg:flex items-center gap-3">
+                        {/* Secondary CTA */}
+                        <Link
+                            to="/contact"
+                            className="relative group inline-flex items-center gap-2 px-5 py-2.5 text-white/70 hover:text-white font-medium text-sm rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden"
+                        >
+                            <span className="relative z-10">Talk to Expert</span>
+                            {/* Hover gradient */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </Link>
+
+                        {/* Primary CTA - Premium gradient button */}
+                        <Link
+                            to="/platform-demo"
+                            className="group relative inline-flex items-center gap-2 px-6 py-2.5 font-medium text-sm rounded-xl overflow-hidden transition-all duration-500 hover:scale-[1.02]"
+                        >
+                            {/* Static gradient background */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-gold)] via-[var(--color-gold-light)] to-[var(--color-gold)]" />
+
+                            {/* Overlay for depth */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+
+                            {/* Content */}
+                            <Sparkles className="w-4 h-4 text-[#050505] relative z-10" />
+                            <span className="relative z-10 text-[#050505] font-semibold tracking-wide">Request Demo</span>
+
+                            {/* Premium glow */}
+                            <div className="absolute inset-0 rounded-xl shadow-[0_0_30px_rgba(74,158,255,0.3)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        </Link>
+                    </div>
+
+                    {/* Mobile Menu Button - Premium */}
+                    <button
+                        className="lg:hidden relative p-2 rounded-xl text-white hover:bg-white/10 transition-all duration-300"
+                        onClick={() => setIsMobileOpen(!isMobileOpen)}
+                        aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
+                        aria-expanded={isMobileOpen}
                     >
-                        <span className="relative z-10">Talk to Expert</span>
-                        {/* Hover gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </Link>
+                        <AnimatePresence mode="wait">
+                            {isMobileOpen ? (
+                                <motion.div
+                                    key="close"
+                                    initial={{ rotate: -90, opacity: 0 }}
+                                    animate={{ rotate: 0, opacity: 1 }}
+                                    exit={{ rotate: 90, opacity: 0 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    <X className="w-6 h-6" />
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    key="menu"
+                                    initial={{ rotate: 90, opacity: 0 }}
+                                    animate={{ rotate: 0, opacity: 1 }}
+                                    exit={{ rotate: -90, opacity: 0 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    <Menu className="w-6 h-6" />
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </button>
 
-                    {/* Primary CTA - Premium gradient button */}
-                    <Link
-                        to="/platform-demo"
-                        className="group relative inline-flex items-center gap-2 px-6 py-2.5 font-medium text-sm rounded-xl overflow-hidden transition-all duration-500 hover:scale-[1.02]"
-                    >
-                        {/* Animated gradient background */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-gold)] via-white to-[var(--color-gold)] bg-[length:200%_100%] animate-shimmer-slow" />
 
-                        {/* Overlay for depth */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
-
-                        {/* Content */}
-                        <Sparkles className="w-4 h-4 text-[#050505] relative z-10" />
-                        <span className="relative z-10 text-[#050505] font-semibold tracking-wide">Request Demo</span>
-
-                        {/* Premium glow */}
-                        <div className="absolute inset-0 rounded-xl shadow-[0_0_30px_rgba(201,168,108,0.4)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </Link>
-                </div>
-
-                {/* Mobile Menu Button - Premium */}
-                <button
-                    className="lg:hidden relative p-2 rounded-xl text-white hover:bg-white/10 transition-all duration-300"
-                    onClick={() => setIsMobileOpen(!isMobileOpen)}
-                    aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
-                    aria-expanded={isMobileOpen}
-                >
-                    <AnimatePresence mode="wait">
-                        {isMobileOpen ? (
+                    {/* Mobile Navigation - Premium Full Screen */}
+                    <AnimatePresence>
+                        {isMobileOpen && (
                             <motion.div
-                                key="close"
-                                initial={{ rotate: -90, opacity: 0 }}
-                                animate={{ rotate: 0, opacity: 1 }}
-                                exit={{ rotate: 90, opacity: 0 }}
-                                transition={{ duration: 0.2 }}
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                                className="lg:hidden absolute top-full left-0 right-0 bg-[#050505]/98 backdrop-blur-3xl border-t border-white/5 overflow-hidden"
                             >
-                                <X className="w-6 h-6" />
-                            </motion.div>
-                        ) : (
-                            <motion.div
-                                key="menu"
-                                initial={{ rotate: 90, opacity: 0 }}
-                                animate={{ rotate: 0, opacity: 1 }}
-                                exit={{ rotate: -90, opacity: 0 }}
-                                transition={{ duration: 0.2 }}
-                            >
-                                <Menu className="w-6 h-6" />
+                                <div className="container py-8 max-h-[80vh] overflow-y-auto">
+                                    {/* Mobile nav sections */}
+                                    {navConfig.map((section, sectionIdx) => (
+                                        <motion.div
+                                            key={section.label}
+                                            className="mb-4"
+                                            initial={{ opacity: 0, x: -20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: sectionIdx * 0.05 }}
+                                        >
+                                            <button
+                                                onClick={() => setMobileExpandedSection(
+                                                    mobileExpandedSection === section.label ? null : section.label
+                                                )}
+                                                className="flex items-center justify-between w-full py-4 text-white font-medium text-lg"
+                                            >
+                                                <span className="flex items-center gap-3">
+                                                    <Zap className={`w-4 h-4 transition-colors ${mobileExpandedSection === section.label ? 'text-[var(--color-gold)]' : 'text-white/30'
+                                                        }`} />
+                                                    {section.label}
+                                                </span>
+                                                <ChevronDown className={`w-5 h-5 text-white/50 transition-transform ${mobileExpandedSection === section.label ? 'rotate-180 text-[var(--color-gold)]' : ''
+                                                    }`} />
+                                            </button>
+
+                                            <AnimatePresence>
+                                                {mobileExpandedSection === section.label && (
+                                                    <motion.div
+                                                        initial={{ opacity: 0, height: 0 }}
+                                                        animate={{ opacity: 1, height: 'auto' }}
+                                                        exit={{ opacity: 0, height: 0 }}
+                                                        className="pl-8 border-l-2 border-[var(--color-gold)]/30 ml-2"
+                                                    >
+                                                        {section.items.map((item) => {
+                                                            if (item.divider) return null
+                                                            return (
+                                                                <Link
+                                                                    key={item.href}
+                                                                    to={item.href!}
+                                                                    className="flex items-center gap-3 py-3 text-white/60 hover:text-white transition-colors"
+                                                                >
+                                                                    <span className="text-lg">{item.icon}</span>
+                                                                    <span>{item.label}</span>
+                                                                </Link>
+                                                            )
+                                                        })}
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+                                        </motion.div>
+                                    ))}
+
+                                    {/* Mobile CTAs */}
+                                    <motion.div
+                                        className="pt-8 mt-4 border-t border-white/10 space-y-4"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.3 }}
+                                    >
+                                        <Link
+                                            to="/contact"
+                                            className="flex items-center justify-center py-4 text-white/70 border border-white/20 rounded-xl hover:bg-white/5 transition-all"
+                                        >
+                                            Talk to an Expert
+                                        </Link>
+                                        <Link
+                                            to="/platform-demo"
+                                            className="flex items-center justify-center gap-2 py-4 bg-gradient-to-r from-[var(--color-gold)] to-[var(--color-aurora-teal)] text-white font-semibold rounded-xl"
+                                        >
+                                            <Sparkles className="w-4 h-4" />
+                                            Request Demo
+                                        </Link>
+                                    </motion.div>
+                                </div>
                             </motion.div>
                         )}
                     </AnimatePresence>
-                </button>
-            </nav>
-
-            {/* Mobile Navigation - Premium Full Screen */}
-            <AnimatePresence>
-                {isMobileOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-                        className="lg:hidden absolute top-full left-0 right-0 bg-[#050505]/98 backdrop-blur-3xl border-t border-white/5 overflow-hidden"
-                    >
-                        <div className="container py-8 max-h-[80vh] overflow-y-auto">
-                            {/* Mobile nav sections */}
-                            {navConfig.map((section, sectionIdx) => (
-                                <motion.div
-                                    key={section.label}
-                                    className="mb-4"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: sectionIdx * 0.05 }}
-                                >
-                                    <button
-                                        onClick={() => setMobileExpandedSection(
-                                            mobileExpandedSection === section.label ? null : section.label
-                                        )}
-                                        className="flex items-center justify-between w-full py-4 text-white font-medium text-lg"
-                                    >
-                                        <span className="flex items-center gap-3">
-                                            <Zap className={`w-4 h-4 transition-colors ${mobileExpandedSection === section.label ? 'text-[var(--color-gold)]' : 'text-white/30'
-                                                }`} />
-                                            {section.label}
-                                        </span>
-                                        <ChevronDown className={`w-5 h-5 text-white/50 transition-transform ${mobileExpandedSection === section.label ? 'rotate-180 text-[var(--color-gold)]' : ''
-                                            }`} />
-                                    </button>
-
-                                    <AnimatePresence>
-                                        {mobileExpandedSection === section.label && (
-                                            <motion.div
-                                                initial={{ opacity: 0, height: 0 }}
-                                                animate={{ opacity: 1, height: 'auto' }}
-                                                exit={{ opacity: 0, height: 0 }}
-                                                className="pl-8 border-l-2 border-[var(--color-gold)]/30 ml-2"
-                                            >
-                                                {section.items.map((item) => {
-                                                    if (item.divider) return null
-                                                    return (
-                                                        <Link
-                                                            key={item.href}
-                                                            to={item.href!}
-                                                            className="flex items-center gap-3 py-3 text-white/60 hover:text-white transition-colors"
-                                                        >
-                                                            <span className="text-lg">{item.icon}</span>
-                                                            <span>{item.label}</span>
-                                                        </Link>
-                                                    )
-                                                })}
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
-                                </motion.div>
-                            ))}
-
-                            {/* Mobile CTAs */}
-                            <motion.div
-                                className="pt-8 mt-4 border-t border-white/10 space-y-4"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 }}
-                            >
-                                <Link
-                                    to="/contact"
-                                    className="flex items-center justify-center py-4 text-white/70 border border-white/20 rounded-xl hover:bg-white/5 transition-all"
-                                >
-                                    Talk to an Expert
-                                </Link>
-                                <Link
-                                    to="/platform-demo"
-                                    className="flex items-center justify-center gap-2 py-4 bg-gradient-to-r from-[var(--color-gold)] to-white text-[#050505] font-semibold rounded-xl"
-                                >
-                                    <Sparkles className="w-4 h-4" />
-                                    Request Demo
-                                </Link>
-                            </motion.div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                </nav>
+            </div>
         </header>
     )
 }

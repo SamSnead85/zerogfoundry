@@ -45,10 +45,10 @@ export default function ImplementationTimeline({
                                 {/* Node */}
                                 <div
                                     className={`absolute left-0 w-12 h-12 rounded-full flex items-center justify-center border-2 ${isCompleted
-                                            ? 'bg-[var(--color-success)] border-[var(--color-success)] text-white'
-                                            : isCurrent
-                                                ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-white animate-pulse'
-                                                : 'bg-[var(--color-card)] border-[var(--color-border)] text-[var(--color-muted)]'
+                                        ? 'bg-[var(--color-success)] border-[var(--color-success)] text-white'
+                                        : isCurrent
+                                            ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-white'
+                                            : 'bg-[var(--color-card)] border-[var(--color-border)] text-[var(--color-muted)]'
                                         }`}
                                 >
                                     {isCompleted ? (
@@ -61,8 +61,8 @@ export default function ImplementationTimeline({
                                 {/* Content */}
                                 <div
                                     className={`p-5 rounded-xl ${isCurrent
-                                            ? 'bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30'
-                                            : 'bg-[var(--color-background)]/50'
+                                        ? 'bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30'
+                                        : 'bg-[var(--color-background)]/50'
                                         }`}
                                 >
                                     <div className="flex items-center justify-between mb-2">

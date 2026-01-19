@@ -74,10 +74,12 @@ export default function Footer() {
                                     href={social.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-11 h-11 flex items-center justify-center rounded-xl bg-[var(--color-glass)] border border-[var(--color-border)] text-[var(--color-muted)] hover:text-[var(--color-gold)] hover:border-[var(--color-gold)]/30 transition-all duration-300"
+                                    className="group/social relative w-11 h-11 flex items-center justify-center rounded-xl bg-[var(--color-glass)] border border-[var(--color-border)] text-[var(--color-muted)] hover:text-[var(--color-gold)] hover:border-[var(--color-gold)]/40 hover:shadow-[0_0_30px_rgba(201,168,108,0.25)] transition-all duration-500"
                                     aria-label={social.label}
                                 >
-                                    <social.icon className="w-5 h-5" />
+                                    {/* Hover glow */}
+                                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[var(--color-gold)]/0 via-[var(--color-gold)]/10 to-[var(--color-aurora-teal)]/0 opacity-0 group-hover/social:opacity-100 transition-opacity duration-500" />
+                                    <social.icon className="relative z-10 w-5 h-5" />
                                 </a>
                             ))}
                         </div>
@@ -153,7 +155,10 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-10 border-t border-[var(--color-border)] flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="relative pt-10 border-t border-[var(--color-border)] flex flex-col md:flex-row items-center justify-between gap-4">
+                    {/* Premium gradient accent on divider */}
+                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-gold)]/25 to-transparent" />
+
                     <p className="text-[var(--color-subtle)] text-sm">
                         &copy; {currentYear} Zero G Foundry. All rights reserved.
                     </p>

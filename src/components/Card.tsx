@@ -20,17 +20,17 @@ const paddingClasses = {
 
 const glowClasses = {
     none: '',
-    gold: 'hover:shadow-[0_0_60px_rgba(201,168,108,0.2)]',
-    aurora: 'hover:shadow-[0_0_60px_rgba(79,255,237,0.15)]',
-    holographic: 'hover:shadow-[0_8px_50px_rgba(168,85,247,0.15),0_0_80px_rgba(79,255,237,0.1)]',
-    premium: 'hover:shadow-[0_25px_80px_-12px_rgba(0,0,0,0.5),0_0_60px_rgba(201,168,108,0.08)]',
+    gold: 'hover:shadow-[0_0_60px_rgba(201,168,108,0.25)] hover:border-[rgba(201,168,108,0.4)]',
+    aurora: 'hover:shadow-[0_0_60px_rgba(79,255,237,0.2)] hover:border-[rgba(79,255,237,0.4)]',
+    holographic: 'hover:shadow-[0_8px_50px_rgba(168,85,247,0.2),0_0_80px_rgba(79,255,237,0.15)] hover:border-[rgba(168,85,247,0.4)]',
+    premium: 'hover:shadow-[0_25px_80px_-12px_rgba(0,0,0,0.5),0_0_60px_rgba(201,168,108,0.12)] hover:border-[rgba(201,168,108,0.35)]',
 }
 
 const variantClasses = {
-    default: 'bg-[var(--color-card)] border border-[var(--color-border)]',
-    glass: 'bg-white/[0.02] backdrop-blur-2xl border border-white/10',
-    solid: 'bg-[#0a0a0a] border border-white/10',
-    outline: 'bg-transparent border border-white/15 hover:border-white/30',
+    default: 'bg-[var(--color-card)] border border-[var(--color-border)] transition-[border-color,box-shadow] duration-500',
+    glass: 'bg-white/[0.03] backdrop-blur-3xl border border-white/10 transition-[border-color,box-shadow] duration-500',
+    solid: 'bg-[#0a0a0a] border border-white/10 transition-[border-color,box-shadow] duration-500',
+    outline: 'bg-transparent border border-white/15 hover:border-white/30 transition-[border-color,box-shadow] duration-500',
 }
 
 export default function Card({

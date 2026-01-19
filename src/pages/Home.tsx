@@ -98,10 +98,10 @@ export default function Home() {
                             transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
                         >
                             {/* Ultra-Premium Display Headline with Typography Revolution */}
-                            <h1 className="text-hero text-[var(--color-foreground)] mb-8">
+                            <h1 className="text-hero text-[var(--color-foreground)] mb-8" style={{ textShadow: '0 0 60px rgba(201, 168, 108, 0.2)' }}>
                                 <span className="text-reveal-up inline-block">From Core to</span>
                                 <br />
-                                <span className="text-gradient-shimmer italic font-light text-reveal-up inline-block delay-2">
+                                <span className="text-gradient-shimmer italic text-reveal-up inline-block delay-2">
                                     Customer
                                 </span>
                             </h1>

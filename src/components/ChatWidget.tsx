@@ -339,7 +339,7 @@ export default function ChatWidget() {
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}
                         onClick={() => setIsOpen(true)}
-                        className={`fixed bottom-6 right-6 w-14 h-14 rounded-full bg-gradient-to-br from-[var(--color-gold)] to-[var(--color-aurora-teal)] text-[#050505] shadow-lg hover:scale-110 transition-transform z-40 flex items-center justify-center ${leadProfile.engagementLevel === 'hot' ? 'animate-pulse' : ''}`}
+                        className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-gradient-to-br from-[var(--color-gold)] to-[var(--color-aurora-teal)] text-[#050505] shadow-lg hover:scale-110 transition-transform z-40 flex items-center justify-center"
                         aria-label="Open chat"
                     >
                         <MessageCircle className="w-6 h-6" />
@@ -376,7 +376,7 @@ export default function ChatWidget() {
                                 <div>
                                     <p className="font-semibold text-white">Zero Foundry AI</p>
                                     <p className="text-xs text-[var(--color-success)] flex items-center gap-1">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-success)] animate-pulse" />
+                                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-success)]" />
                                         Online now
                                     </p>
                                 </div>
@@ -430,8 +430,8 @@ export default function ChatWidget() {
                                                                     to={action.href}
                                                                     onClick={() => setIsOpen(false)}
                                                                     className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${action.variant === 'primary'
-                                                                            ? 'bg-[var(--color-gold)] text-[#050505] hover:opacity-90'
-                                                                            : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
+                                                                        ? 'bg-[var(--color-gold)] text-[#050505] hover:opacity-90'
+                                                                        : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
                                                                         }`}
                                                                 >
                                                                     {action.label.includes('Schedule') && <Calendar className="w-3 h-3" />}
@@ -444,8 +444,8 @@ export default function ChatWidget() {
                                                                     key={idx}
                                                                     onClick={() => handleAction(action)}
                                                                     className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${action.variant === 'primary'
-                                                                            ? 'bg-[var(--color-gold)] text-[#050505] hover:opacity-90'
-                                                                            : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
+                                                                        ? 'bg-[var(--color-gold)] text-[#050505] hover:opacity-90'
+                                                                        : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
                                                                         }`}
                                                                 >
                                                                     {action.label}

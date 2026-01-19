@@ -34,7 +34,7 @@ export default function BackToTop({ showAfter = 400 }: BackToTopProps) {
                     exit={{ opacity: 0, scale: 0.8, y: 20 }}
                     transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                     onClick={scrollToTop}
-                    className="fixed bottom-8 right-8 z-50 group"
+                    className="fixed bottom-24 right-8 z-50 group"
                     aria-label="Scroll to top"
                 >
                     {/* Glow effect */}
