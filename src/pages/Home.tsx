@@ -20,146 +20,84 @@ export default function Home() {
 
     return (
         <>
-            {/* Ultra-Premium Hero Section — Unified Platform */}
-            <section className="relative min-h-screen flex items-center overflow-hidden bg-[#050505]">
-                {/* Million-Dollar Organic Mesh Background */}
+            {/* OPTION C: Cinematic Overlay Hero */}
+            <section className="relative min-h-screen flex items-center overflow-hidden">
+                {/* Server Room Background Image */}
                 <div className="absolute inset-0">
-                    {/* Premium grain texture */}
-                    <div
-                        className="absolute inset-0 opacity-[0.02]"
-                        style={{
-                            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-                        }}
+                    <img
+                        src="/zerog-hero-bg.png"
+                        alt=""
+                        className="absolute inset-0 w-full h-full object-cover"
                     />
-
-                    {/* Primary Gold Orb - Top Left */}
-                    <motion.div
-                        className="absolute -top-32 -left-32 w-[800px] h-[800px] rounded-full"
-                        style={{
-                            background: 'radial-gradient(circle, rgba(201, 168, 108, 0.18) 0%, transparent 70%)',
-                            filter: 'blur(120px)',
-                        }}
-                        animate={{
-                            x: [0, 50, -40, 30, 0],
-                            y: [0, 40, -30, 50, 0],
-                            scale: [1, 1.15, 0.9, 1.1, 1],
-                        }}
-                        transition={{
-                            duration: 35,
-                            ease: "easeInOut",
-                            repeat: Infinity,
-                        }}
-                    />
-
-                    {/* Aurora Teal Orb - Top Right */}
-                    <motion.div
-                        className="absolute -top-20 -right-40 w-[700px] h-[700px] rounded-full"
-                        style={{
-                            background: 'radial-gradient(circle, rgba(79, 255, 237, 0.08) 0%, transparent 70%)',
-                            filter: 'blur(100px)',
-                        }}
-                        animate={{
-                            x: [0, -45, 35, -25, 0],
-                            y: [0, 35, -40, 30, 0],
-                            scale: [1, 0.9, 1.15, 0.95, 1],
-                        }}
-                        transition={{
-                            duration: 30,
-                            ease: "easeInOut",
-                            repeat: Infinity,
-                            delay: 3,
-                        }}
-                    />
-
-                    {/* Premium Grid Pattern */}
-                    <div
-                        className="absolute inset-0 opacity-[0.01]"
-                        style={{
-                            backgroundImage: `
-                                linear-gradient(rgba(250, 250, 250, 0.5) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(250, 250, 250, 0.5) 1px, transparent 1px)
-                            `,
-                            backgroundSize: '100px 100px',
-                        }}
-                    />
+                    {/* Deep Blue Cinematic Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628]/95 via-[#0d1f3c]/90 to-[#061224]/95" />
 
                     {/* Cinematic Vignette */}
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_65%_at_50%_45%,transparent_0%,rgba(5,5,5,0.6)_100%)]" />
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_40%,transparent_0%,rgba(6,18,36,0.7)_100%)]" />
 
-                    {/* Bottom gradient */}
+                    {/* Bottom fade */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
                 </div>
 
                 <div className="container relative z-10 py-24 md:py-32">
-                    <div className="max-w-5xl">
+                    <div className="max-w-4xl mx-auto text-center">
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            {/* Ultra-Premium Display Headline with Typography Revolution */}
-                            <h1 className="text-hero text-[var(--color-foreground)] mb-8" style={{ textShadow: '0 0 60px rgba(201, 168, 108, 0.2)' }}>
-                                <span className="text-reveal-up inline-block">From Core to</span>
+                            {/* Hero Headline - "Escape the gravity" */}
+                            <h1 className="text-[clamp(2.5rem,7vw,5rem)] font-light text-white mb-6 leading-[1.1] tracking-tight">
+                                Escape the gravity
                                 <br />
-                                <span className="text-gradient-shimmer italic text-reveal-up inline-block delay-2">
-                                    Customer
-                                </span>
+                                <span className="font-normal">of legacy systems</span>
                             </h1>
 
-                            {/* Enhanced Subtitle */}
-                            <p className="text-lg md:text-xl text-[var(--color-muted)] mb-14 max-w-2xl leading-[1.8] font-light tracking-wide">
-                                Zero Foundry is the independent AI transformation platform. We empower you to
-                                <span className="text-[var(--color-foreground)] text-glow-hover"> modernize legacy mainframes</span> and
-                                <span className="text-[var(--color-foreground)] text-glow-hover"> revolutionize your contact center</span>—all with
-                                the power of agentic AI, free from hyperscaler lock-in.
+                            {/* Subtitle */}
+                            <p className="text-lg md:text-xl text-white/70 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+                                Escape the gravity of legacy systems with next-generation
+                                AI transformation, better outcomes, and future-ready technologies.
                             </p>
 
-                            {/* Premium CTA Buttons */}
-                            <div className="flex flex-wrap gap-5 mb-24">
+                            {/* CTA Button */}
+                            <div className="flex justify-center">
                                 <Link
                                     to="/platform-demo"
-                                    className="group inline-flex items-center px-8 py-4 bg-[var(--color-foreground)] text-[#050505] font-medium text-[0.9375rem] tracking-wide rounded-xl transition-all duration-500 hover:shadow-[0_0_60px_rgba(201,168,108,0.3)] hover:scale-[1.02]"
+                                    className="group inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium text-[0.9375rem] tracking-wide rounded-lg transition-all duration-500 hover:bg-white/20 hover:border-white/40"
                                 >
-                                    Request a Demo
-                                    <ArrowRight className="w-4 h-4 ml-3 transition-transform group-hover:translate-x-1" />
-                                </Link>
-                                <Link
-                                    to="/contact"
-                                    className="inline-flex items-center px-8 py-4 border border-[var(--color-border-strong)] text-[var(--color-foreground)] font-medium text-[0.9375rem] tracking-wide rounded-xl transition-all duration-500 hover:bg-[var(--color-glass)] hover:border-[var(--color-gold)]/30 hover:shadow-[0_0_40px_rgba(79,255,237,0.1)]"
-                                >
-                                    Talk to an Expert
+                                    REQUEST A DEMO
                                 </Link>
                             </div>
                         </motion.div>
 
-                        {/* Premium Metrics Bar with Typography Enhancement */}
+                        {/* Premium Metrics Bar */}
                         <motion.div
-                            className="grid grid-cols-3 gap-10 md:gap-24 pt-14 border-t border-[var(--color-border)]"
+                            className="grid grid-cols-3 gap-10 md:gap-24 pt-20 mt-20 border-t border-white/10 max-w-3xl mx-auto"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1, duration: 1.2 }}
                         >
-                            <div className="group">
-                                <div className="text-display text-[2.25rem] md:text-[3rem] text-[var(--color-foreground)] tracking-tight transition-all duration-500 group-hover:text-[var(--color-gold)] text-glow-gold-hover">
-                                    $12M<span className="text-[var(--color-muted)]">+</span>
+                            <div className="group text-center">
+                                <div className="text-[2.25rem] md:text-[3rem] text-white font-light tracking-tight">
+                                    $12M<span className="text-white/50">+</span>
                                 </div>
-                                <div className="text-eyebrow mt-3">
+                                <div className="text-[0.65rem] tracking-[0.2em] uppercase text-white/50 mt-2">
                                     Average Savings
                                 </div>
                             </div>
-                            <div className="group">
-                                <div className="text-display text-[2.25rem] md:text-[3rem] text-[var(--color-foreground)] tracking-tight transition-all duration-500 group-hover:text-[var(--color-aurora-teal)] text-glow-aurora-hover">
-                                    95<span className="text-[var(--color-muted)]">%</span>
+                            <div className="group text-center">
+                                <div className="text-[2.25rem] md:text-[3rem] text-white font-light tracking-tight">
+                                    95<span className="text-white/50">%</span>
                                 </div>
-                                <div className="text-eyebrow mt-3">
+                                <div className="text-[0.65rem] tracking-[0.2em] uppercase text-white/50 mt-2">
                                     Production Accuracy
                                 </div>
                             </div>
-                            <div className="group">
-                                <div className="text-display text-[2.25rem] md:text-[3rem] text-[var(--color-foreground)] tracking-tight transition-all duration-500 group-hover:text-[var(--color-holographic-violet)]">
-                                    5<span className="text-[var(--color-muted)]">x</span>
+                            <div className="group text-center">
+                                <div className="text-[2.25rem] md:text-[3rem] text-white font-light tracking-tight">
+                                    5<span className="text-white/50">x</span>
                                 </div>
-                                <div className="text-eyebrow mt-3">
+                                <div className="text-[0.65rem] tracking-[0.2em] uppercase text-white/50 mt-2">
                                     ROI Multiple
                                 </div>
                             </div>
