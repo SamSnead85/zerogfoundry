@@ -202,26 +202,28 @@ export default function Navigation() {
                         }`}
                     aria-label="Main navigation"
                 >
-                    {/* Premium Logo */}
-                    <Link to="/" className="flex items-center gap-3 group relative" aria-label="Zero Foundry Home">
-                        {/* Logo glow effect */}
-                        <div className="absolute -inset-4 bg-gradient-to-r from-[var(--color-gold)]/0 via-[var(--color-gold)]/10 to-[var(--color-gold)]/0 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    {/* Premium Logo - Elegant ØG Typographic Mark */}
+                    <Link to="/" className="flex items-center gap-2.5 group relative" aria-label="Zero Foundry Home">
+                        {/* Subtle hover glow */}
+                        <div className="absolute -inset-4 bg-gradient-to-r from-white/0 via-white/5 to-white/0 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-                        {/* Logo mark */}
-                        <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center group-hover:border-[var(--color-gold)]/30 transition-all duration-500 overflow-hidden">
-                            <span className="text-lg font-bold bg-gradient-to-br from-white via-[var(--color-gold)] to-white bg-clip-text text-transparent">Z</span>
-                            {/* Shine effect */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                        {/* ØG Logo Mark - Premium Typographic */}
+                        <div className="relative flex items-center">
+                            <span
+                                className="text-2xl font-light tracking-tighter bg-gradient-to-b from-white via-[#C0C0C0] to-[#808080] bg-clip-text text-transparent group-hover:from-white group-hover:via-[#E8E8E8] group-hover:to-[#B0B0B0] transition-all duration-500"
+                                style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+                            >
+                                ØG
+                            </span>
                         </div>
 
+                        {/* Divider */}
+                        <div className="hidden sm:block w-px h-5 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+
                         {/* Text logo */}
-                        <div className="relative">
-                            <span className="text-xl font-serif font-medium tracking-tight text-white group-hover:text-[var(--color-gold)] transition-colors duration-300">
+                        <div className="relative hidden sm:block">
+                            <span className="text-lg font-light tracking-wide text-white/90 group-hover:text-white transition-colors duration-300">
                                 Zero Foundry
-                            </span>
-                            {/* Tagline - visible on large screens */}
-                            <span className="hidden xl:block text-[10px] text-white/40 uppercase tracking-[0.2em] font-medium mt-0.5">
-                                AI Transformation
                             </span>
                         </div>
                     </Link>
